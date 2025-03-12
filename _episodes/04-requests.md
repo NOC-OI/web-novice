@@ -145,7 +145,7 @@ now with the Python `requests` library:
 
 ~~~
 import requests
-response = requests.get("http://www.carpentries.org")
+response = requests.get("http://carpentries.org")
 ~~~
 {: .language-python}
 
@@ -403,7 +403,7 @@ and check that our new comment is there.
 > >
 > > And the type is `PreparedRequest`:
 >> > ~~~
-> > type(response.requests)
+> > type(response.request)
 > > ~~~
 > > {: .language-python}
 > >
