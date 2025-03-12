@@ -51,32 +51,12 @@ it to manage your account and repositories.
 You can also **delete it** from the 
 Settings > Developer Settings > Personal Access Token
 page on GitHub, to be 100% sure.
-  
-## (Optional) Met Office API Keys
 
-In some additional challenges
-we will be making requests from the Met Office Data point.
-In order to follow this section you will need a valid "API key"
-for this data source. To obtain this:
-
-- Sign up with the [Met Office Data Point][datapoint]
-  You will have to choose username and password,
-  and will receive an email to activate your account.
-- Once your account is activated,
-  navigate to the [My Account Page][metaccount].
-  At the bottom of the page,
-  you will find your Application Key.
-  Save that API key in a plain text file,
-  making sure not to share its contents with anyone.
-  In the following, we will refer to this file 
-  with `metoffice-api-key.txt`.
 
 
 
 
 {% include links.md %}
 
-[datapoint]: https://www.metoffice.gov.uk/services/data/datapoint
 [github]: https://github.com
-[metaccount]: https://register.metoffice.gov.uk/MyAccountClient/account/view
 [workshop-template]: https://carpentries.github.io/workshop-template
