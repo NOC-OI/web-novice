@@ -184,10 +184,9 @@ authentication beyond this.
 
 Let's try working with the NASA API now. To do this, first we need to generate
 our API key by providing our details at [the API home page][nasa-api]. Once that
-is done, NASA provide the API key instantly, and send a copy to the email
-address you provide. They helpfully also provide an example of an API query to
-try, querying the Astronomy Picture of the Day (APOD). This shows us that NASA
-expects the API key to be encoded as a query parameter.
+is done, NASA sends a copy to the email address you provide. Let's use Astronomy
+Picture of the Day (APOD) as an example of an API query to try. This shows us
+that NASA expects the API key to be encoded as a query parameter.
 
 ~~~
 $ curl -i https://api.nasa.gov/planetary/apod?api_key=ejgThfasPCRf4kTd39ar55Aqhxv8cwKBdVOyZ9Rr
