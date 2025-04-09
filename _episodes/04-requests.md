@@ -145,7 +145,7 @@ now with the Python `requests` library:
 
 ~~~
 import requests
-response = requests.get("http://www.carpentries.org")
+response = requests.get("http://carpentries.org")
 ~~~
 {: .language-python}
 
@@ -403,7 +403,7 @@ and check that our new comment is there.
 > >
 > > And the type is `PreparedRequest`:
 >> > ~~~
-> > type(response.requests)
+> > type(response.request)
 > > ~~~
 > > {: .language-python}
 > >
@@ -462,200 +462,10 @@ one could also use a `Session` object
 from the `requests` library
 (see [Advanced Usage][advanced-requests]).
 
-## Another GET example - the Met Office API
-
-As an additional example of using `requests` to connect 
-to an API rather than a plain web site
-we'll use the Met Office DataPoint API.
-The Met Office don't especially want us to modify their forecasts&mdash;as
-much as we might like to modify the weather,
-so we will limit ourselves to GET requests.
-
-To do this, you will need an API key. 
-If you don't already have an API for the Met Office DataPoint, 
-then follow the instructions on the [Setup][setup] page now.
-
-The first step when working with API keys is to load the key into memory. 
-This can either be done from a file, 
-or by specifying the key directly in a settings file.
-
-~~~
-with open("metoffice-api-key.txt", "r") as file:
-  api_key = file.read().strip()
-~~~
-{: .language-python}
-
-Looking at the [Met Office API reference][metoffice-api-reference],
-we can build a url to access the current forecasts
-for Swansea:
-
-~~~
-base_metoffice_url = "http://datapoint.metoffice.gov.uk/public/data/"
-resource = "val/wxfcs/all/json/310149"
-url = base_metoffice_url + resource
-url
-~~~
-{: .language-python}
-
-As shown in the API reference,
-this time we need to pass 2 parameters in the request:
-a resource description, and the API key,
-in order for the Met Office server to identify us.
-
-As we saw in the previous episode, with `curl` from the command line,
-we would have to use the following command
-
-~~~
-$ curl "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/310149?res=3hourly&key=$(cat metoffice-api-key.txt)" | less
-~~~
-{: .language-bash}
-
-building the parameter string explicitly.
-This is also the syntax that is used 
-in a browser address bar:
-
-~~~
-"protocol://host/resource/path?parname1=value1&parname2=value2..."
-~~~
-
-However, using the `requests` library allows us to use a nicer syntax:
-
-~~~
-response = requests.get(url, params={"res":"3hourly", "key":api_key})
-response
-~~~
-{: .language-python}
-
-~~~
-<Response [200]>
-~~~
-{: .output}
-
-As we saw previously, the code 200 means "success".
-To make sure the response contains what we expect,
-let's quickly print its headers 
-(which has the structure of a dictionary):
-
-~~~
-for key, value in response.headers.items():
-    print((key, value))
-~~~
-{: .language-python}
-
-~~~
-('Server', 'WaveServer 1.0')
-('ETag', '1615686466177')
-('Content-Type', 'application/json')
-('WebServer', '-PROD-01')
-('Access-Control-Allow-Origin', '*')
-('Content-Encoding', 'gzip')
-('Content-Length', '1051')
-('Cache-Control', 'public, no-transform, must-revalidate, max-age=611')
-('Expires', 'Sun, 14 Mar 2021 12:38:16 GMT')
-('Date', 'Sun, 14 Mar 2021 12:28:05 GMT')
-('Connection', 'keep-alive')
-('Vary', 'Accept-Encoding')
-~~~
-{: .output}
-
-As expected the `Content-Type` is `application-json`.
-We can now look at the body of the response:
-
-~~~
-response.text[:100]
-~~~
-{: .language-python}
-
-~~~
-'{"SiteRep":{"Wx":{"Param":[{"name":"F","units":"C","$":"Feels Like Temperature"},{"name":"G","units"
-~~~
-{: .output}
-
-As mentioned, the `requests` library 
-can parse this JSON representation 
-and return a more convenient Python object,
-using which we can access the inner data:
-
-~~~
-data = response.json()
-data["SiteRep"]["Wx"]
-~~~
-{: .language-python}
-
-> ## Another location
->
-> As described in [the API reference][metoffice-api-reference]
-> the Met Office has a list of locations available 
-> at `/public/data/val/wxfcs/all/json/sitelist`.
-> Choose a site near you.
-> What is the expected temperature 
-> tomorrow at 11 AM?
->
-> Hint: Once you have the right data,
-> you can use
->
-> ~~~
-> data["SiteRep"]["DV"]["Location"]["Period"][1]["Rep"][3]["T"]
-> ~~~
-> {: .language-python}
->
-> to get to the quantity of interest.
->
-> > ## Solution
-> > We query the MetOffice API using
-> >
-> > ~~~
-> > sitelist_url = base_metoffice_url + 'val/wxfcs/all/json/sitelist'
-> > site_response = requests.get(sitelist_url, 
-> >                              params = dict(key = api_key)) 
-> > sitelist = site_response.json()["Locations"]["Location"] # sic, unfortunately
-> > ~~~
-> > {: .language-python}
-> >
-> > We can look for a location,
-> > e.g. Cardiff:
-> >
-> > ~~~
-> > for site in sitelist:
-> >     if site["name"] == "Cardiff":
-> >         print(site['id'])
-> > ~~~
-> > {: .language-python}
-> >
-> > Cardiff has two locations, one of the location's ID is `350758`,
-> > so we can use it:
-> >
-> > ~~~
-> > resource = "val/wxfcs/all/json/350758"
-> > url = base_metoffice_url + resource
-> > response = requests.get(url, params={"res":"3hourly", "key":api_key})
-> > data = response.json()
-> > ~~~
-> > {: .language-python}
-> >
-> > Now we must explore the data 
-> > to find the information we need.
-> > It turns out that it is in
-> >
-> > ~~~
-> > data["SiteRep"]["DV"]["Location"]["Period"][1]["Rep"][3]["T"]
-> > ~~~
-> > {: .language-python}
-> >
-> > The meanings of the keys in each dictionary
-> > can be found in
-> >
-> > ~~~
-> > data["SiteRep"]["Wx"]
-> > ~~~
-> > {: .language-python}
-> {: .solution}
-{: .challenge}
 
 
 [github-api-docs-repo]: https://docs.github.com/en/rest/reference/repos
 [advanced-requests]: https://requests.readthedocs.io/en/master/user/advanced/
-[metoffice-api-reference]: https://www.metoffice.gov.uk/services/data/datapoint/api-reference
 [mmesiti-issues]: https://github.com/mmesiti/web-novice-test-repo/issues/1
 [setup]: ../setup
 
