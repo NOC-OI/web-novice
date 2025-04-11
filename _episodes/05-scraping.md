@@ -22,11 +22,11 @@ to use
 the Beautiful Soup Python package
 for web scraping
 to find all the relevant information
-about future Software Carpentry Workshop events.
+about Software Carpentry lessons.
 
 ## Exploring HTML code in the browser
 
-Navigate to [The Carpentries][carpentries].
+Navigate to [The Software Carpentry Lessons][software-carpentry-lessons].
 The page we see has been rendered by the browser
 from the HTML, CSS (Cascading Style Sheets) and JavaScript code
 that is available or linked in the page in some way.
@@ -135,13 +135,13 @@ pip install beautifulsoup4
 Once we are sure the BeautifulSoup is available,
 we can import the necessary libraries in Python
 and use `requests` to GET 
-the Carpentries website content:
+the Software Carpentries website content:
 
 ~~~
 import requests
 from bs4 import BeautifulSoup
 
-response = requests.get("http://www.carpentries.org")
+response = requests.get("https://software-carpentry.org/lessons/")
 response
 ~~~
 {: .language-python}
@@ -166,38 +166,108 @@ soup = BeautifulSoup(markup=response.text,
 {: .language-python}
 
 Looking at the HTML code,
-we see that just above our table 
-there is the text "Upcoming Carpentries Workshops"
+we see that just above the first table 
+there is the text "Core Lessons in English"
 inside a `<h2>` tag (code reindented for clarity)
 
 ~~~
 ...
-<div class="row">
-  <div class="medium-12 columns">
-    <h2>Upcoming Carpentries Workshops</h2>
-    
-    Click on an individual event to learn more about that event, including contact information and registration instructions.
-
-    <table class="table table-striped" style="width: 100%;">
-      <tr> <td>
-          <img src="https://carpentries.org/assets/img/logos/lc.svg" title="lc workshop" alt="lc logo" width="24" height="24" class="flags"/>
-        </td>
-
-        <td>
-          <img src="https://carpentries.org/assets/img/flags/24/us.png" title="US" alt="us"  class="flags"/>
-          
-          <img src="https://carpentries.org/assets/img/flags/24/w3.png" title="Online" alt="globe image" class="flags"/>
-          
-          <a href="https://annajiat.github.io/2021-01-22-uab-NNLM-online">University of Alabama at Birmingham (online)</a>
-          
-          <br/>
-          <b>Instructors:</b> Annajiat Alim Rasel, Cody Hennesy, Camilla Bressan, Mary Ann Warner
-          
-        </td>
-        <td>
-          Jan 22 - Apr 23, 2021
-        </td>
-      </tr>
+<h2 id=core-lessons-in-english>Core Lessons in English</h2>
+<div class="table-striped overflow-x-auto">
+    <table>
+        <thead>
+            <tr>
+                <th>Lesson</th>
+                <th>Site</th>
+                <th>Repository</th>
+                <th>Reference</th>
+                <th>Instructor Notes</th>
+                <th>Maintainers</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>The Unix Shell</td>
+                <td style=text-align:center><a href=https://swcarpentry.github.io/shell-novice /><i
+                        class="fas fa-window-maximize"></i></a></td>
+                <td style=text-align:center><a href=https://github.com/swcarpentry/shell-novice><i
+                            class="fab fa-github"></i></a></td>
+                <td style=text-align:center><a href=https://swcarpentry.github.io/shell-novice/reference><i
+                            class="fas fa-eye"></i></a></td>
+                <td style=text-align:center><a
+                        href=https://swcarpentry.github.io/shell-novice/instructor/instructor-notes><i
+                            class="fas fa-plus"></i></a></td>
+                <td>Jacob Deppen, Benson Muite</td>
+            </tr>
+            <tr>
+                <td>Version control with Git</td>
+                <td style=text-align:center><a href=https://swcarpentry.github.io/git-novice><i
+                            class="fas fa-window-maximize"></i></a></td>
+                <td style=text-align:center><a href=https://github.com/swcarpentry/git-novice><i
+                            class="fab fa-github"></i></a></td>
+                <td style=text-align:center><a href=https://swcarpentry.github.io/git-novice/reference><i
+                            class="fas fa-eye"></i></a></td>
+                <td style=text-align:center><a
+                        href=https://swcarpentry.github.io/git-novice/instructor/instructor-notes><i
+                            class="fas fa-plus"></i></a></td>
+                <td>Erin Graham, Katherine Koziar, Martino Sorbaro</td>
+            </tr>
+            <tr>
+                <td>Programming with Python</td>
+                <td style=text-align:center><a href=https://swcarpentry.github.io/python-novice-inflammation><i
+                            class="fas fa-window-maximize"></i></a></td>
+                <td style=text-align:center><a href=https://github.com/swcarpentry/python-novice-inflammation><i
+                            class="fab fa-github"></i></a></td>
+                <td style=text-align:center><a
+                        href=https://swcarpentry.github.io/python-novice-inflammation/reference><i
+                            class="fas fa-eye"></i></a></td>
+                <td style=text-align:center><a
+                        href=https://swcarpentry.github.io/python-novice-inflammation/instructor/instructor-notes><i
+                            class="fas fa-plus"></i></a></td>
+                <td>Indraneel Chakraborty, Toan Phung, Alberto Villagran</td>
+            </tr>
+            <tr>
+                <td>Plotting and programming with Python</td>
+                <td style=text-align:center><a href=https://swcarpentry.github.io/python-novice-gapminder><i
+                            class="fas fa-window-maximize"></i></a></td>
+                <td style=text-align:center><a href=https://github.com/swcarpentry/python-novice-gapminder><i
+                            class="fab fa-github"></i></a></td>
+                <td style=text-align:center><a href=https://swcarpentry.github.io/python-novice-gapminder/reference><i
+                            class="fas fa-eye"></i></a></td>
+                <td style=text-align:center><a
+                        href=https://swcarpentry.github.io/python-novice-gapminder/instructor/instructor-notes><i
+                            class="fas fa-plus"></i></a></td>
+                <td>Allen Lee, Sourav Singh, Olav Vahtras</td>
+            </tr>
+            <tr>
+                <td>Programming with R</td>
+                <td style=text-align:center><a href=https://swcarpentry.github.io/r-novice-inflammation /><i
+                        class="fas fa-window-maximize"></i></a></td>
+                <td style=text-align:center><a href=https://github.com/swcarpentry/r-novice-inflammation><i
+                            class="fab fa-github"></i></a></td>
+                <td style=text-align:center><a href=https://swcarpentry.github.io/r-novice-inflammation/reference><i
+                            class="fas fa-eye"></i></a></td>
+                <td style=text-align:center><a
+                        href=https://swcarpentry.github.io/r-novice-inflammation/instructor/instructor-notes><i
+                            class="fas fa-plus"></i></a></td>
+                <td>Rohit Goswami, Hugo Gruson, Isaac Jennings</td>
+            </tr>
+            <tr>
+                <td>R for Reproducible Scientific Analysis</td>
+                <td style=text-align:center><a href=https://swcarpentry.github.io/r-novice-gapminder><i
+                            class="fas fa-window-maximize"></i></a></td>
+                <td style=text-align:center><a href=https://github.com/swcarpentry/r-novice-gapminder><i
+                            class="fab fa-github"></i></a></td>
+                <td style=text-align:center><a href=https://swcarpentry.github.io/r-novice-gapminder/reference><i
+                            class="fas fa-eye"></i></a></td>
+                <td style=text-align:center><a
+                        href=https://swcarpentry.github.io/r-novice-gapminder/instructor/instructor-notes><i
+                            class="fas fa-plus"></i></a></td>
+                <td>Matthieu Bruneaux, Sehrish Kanwal, Naupaka Zimmerman</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 ...
 ~~~
 {: .language-html}
@@ -208,12 +278,12 @@ that contains that text,
 using the `string` keyword argument:
 
 ~~~
-(soup.find(string="Upcoming Carpentries Workshops"))
+(soup.find(string="Core Lessons in English"))
 ~~~
 {: .language-python}
 
 ~~~
-'Upcoming Carpentries Workshops'
+'Core Lessons in English'
 ~~~
 {: .output}
 
@@ -238,48 +308,345 @@ is the one that also contains
 the table we are interested in:
 ~~~
 (soup
- .find(string = "Upcoming Carpentries Workshops")
+ .find(string = "Core Lessons in English")
  .find_parents()[1])
 ~~~
 {: .language-python}
 
 ~~~
-<div class="medium-12 columns">
-<h2>Upcoming Carpentries Workshops</h2>
-          
-	  Click on an individual event to learn more about that event, including contact information and registration instructions.
-
-<table class="table table-striped" style="width: 100%;">
-<tr>
-<td>
-<img alt="lc logo" class="flags" height="24" src="https://carpentries.org/assets/img/logos/lc.svg" title="lc workshop" width="24">
-</img></td>
-<td>
-<img alt="us" class="flags" src="https://carpentries.org/assets/img/flags/24
+div class="prose h2-wrap max-w-none">
+    <p>A Software Carpentry workshop is taught by at least one trained and badged Instructor. Over the course of the
+        workshop, Instructors teach our three core topics: the Unix shell, version control with Git, and a programming
+        language (Python or R). Curricula for these lessons in English and Spanish (select lessons only) are below.</p>
+    <p>You may also enjoy <a href="https://datacarpentry.org/lessons">Data Carpentry’s lessons</a> (which focus on data
+        organisation, cleanup, analysis, and visualisation) and <a href="https://librarycarpentry.org/lessons">Library
+            Carpentry’s lessons</a> (which apply concepts of software development and data science to library contexts).
+    </p>
+    <p>Please <a href="https://carpentries.org/contact">contact us</a> with any general questions.</p>
+    <h2 id="core-lessons-in-english">Core Lessons in English</h2>
+    <div class="table-striped overflow-x-auto">
+        <table>
+            <thead>
+                <tr>
+                    <th>Lesson</th>
+                    <th>Site</th>
+                    <th>Repository</th>
+                    <th>Reference</th>
+                    <th>Instructor Notes</th>
+                    <th>Maintainers</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>The Unix Shell</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/shell-novice"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/shell-novice/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>Jacob Deppen, Benson Muite</td>
+                </tr>
+                <tr>
+                    <td>Version control with Git</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/git-novice"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/git-novice"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/git-novice/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/git-novice/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>Erin Graham, Katherine Koziar, Martino Sorbaro</td>
+                </tr>
+                <tr>
+                    <td>Programming with Python</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/python-novice-inflammation"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/python-novice-inflammation"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/python-novice-inflammation/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/python-novice-inflammation/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>Indraneel Chakraborty, Toan Phung, Alberto Villagran</td>
+                </tr>
+                <tr>
+                    <td>Plotting and programming with Python</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/python-novice-gapminder"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/python-novice-gapminder"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/python-novice-gapminder/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/python-novice-gapminder/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>Allen Lee, Sourav Singh, Olav Vahtras</td>
+                </tr>
+                <tr>
+                    <td>Programming with R</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-inflammation/"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/r-novice-inflammation"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/r-novice-inflammation/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/r-novice-inflammation/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>Rohit Goswami, Hugo Gruson, Isaac Jennings</td>
+                </tr>
+                <tr>
+                    <td>R for Reproducible Scientific Analysis</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-gapminder"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/r-novice-gapminder"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/r-novice-gapminder/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/r-novice-gapminder/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>Matthieu Bruneaux, Sehrish Kanwal, Naupaka Zimmerman</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h2 id="core-lessons-in-spanish">Core Lessons in Spanish</h2>
+    <div class="table-striped overflow-x-auto">
+        <table>
+            <thead>
+                <tr>
+                    <th>LecciÃ³n</th>
+                    <th>Sitio web</th>
+                    <th>Repositorio</th>
+                    <th>Referencias</th>
+                    <th>Notas para Instructoras/es</th>
+                    <th>Reponsable(s) del mantenimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>La Terminal de Unix</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice-es"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/shell-novice-es"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice-es/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/shell-novice-es/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>VerÃ³nica JimÃ©nez, Clara Llebot, Heladia Salgado</td>
+                </tr>
+                <tr>
+                    <td>Control de versiones con Git</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice-es"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/git-novice-es"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/git-novice-es/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/git-novice-es/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>Jean-Paul Courneya, Clara Llebot, Mariana Patricia Gomez Nicolas</td>
+                </tr>
+                <tr>
+                    <td>R para AnÃ¡lisis CientÃ­ficos Reproducibles</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-gapminder-es"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/r-novice-gapminder-es"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/r-novice-gapminder-es/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/r-novice-gapminder-es/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>VerÃ³nica JimÃ©nez, Heladia Salgado, Nelly SÃ©lem</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h2 id="additional-lessons">Additional Lessons</h2>
+    <p>These lessons are not part of the core Software Carpentry curriculum but can be offered as supplementary lessons.
+        Please <a href="https://carpentries.org/contact">contact us</a> for more information.</p>
+    <div class="table-striped overflow-x-auto">
+        <table>
+            <thead>
+                <tr>
+                    <th>Lesson</th>
+                    <th>Site</th>
+                    <th>Repository</th>
+                    <th>Reference</th>
+                    <th>Instructor Notes</th>
+                    <th>Maintainers</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Automation and Make</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/make-novice"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/make-novice"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/make-novice/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/make-novice/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>Gerard Capes</td>
+                </tr>
+                <tr>
+                    <td>Programming with MATLAB</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/matlab-novice-inflammation"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/matlab-novice-inflammation"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/matlab-novice-inflammation/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/matlab-novice-inflammation/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>Daniel Cummins, Padem dhar Dwivedi</td>
+                </tr>
+                <tr>
+                    <td>Using Databases and SQL</td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/sql-novice-survey"><i
+                                class="fas fa-window-maximize"></i></a></td>
+                    <td style="text-align:center"><a href="https://github.com/swcarpentry/sql-novice-survey"><i
+                                class="fab fa-github"></i></a></td>
+                    <td style="text-align:center"><a href="https://swcarpentry.github.io/sql-novice-survey/reference"><i
+                                class="fas fa-eye"></i></a></td>
+                    <td style="text-align:center"><a
+                            href="https://swcarpentry.github.io/sql-novice-survey/instructor/instructor-notes"><i
+                                class="fas fa-plus"></i></a></td>
+                    <td>Henry Senyondo</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 ~~~
 {: .language-html}
 
 It seems we are on the right track.
-Now let's focus on the `table` element:
+Now let's focus on the first `table` element:
 
 ~~~
 (soup
- .find(string = "Upcoming Carpentries Workshops")
+ .find(string = "Core Lessons in English")
  .find_parents()[1]
  .find("table"))
 ~~~
 {: .language-python}
 
 ~~~
-<table class="table table-striped" style="width: 100%;">
-<tr>
-<td>
-<img alt="lc logo" class="flags" height="24" src="https://carpentries.org/assets/img/logos/lc.svg" title="lc workshop" width="24">
-</img></td>
-<td>
-<img alt="us" class="flags" src="https://carpentries.org/assets/img/flags/24/us.png" title="US">
-<img alt="globe image" class="flags" src="https://carpentries.org/assets/img/flags/24/w3.png" title="Online">
-<a href="https://annajiat.github.io/2021-01-22-uab-NNLM-online">University of
+<table>
+    <thead>
+        <tr>
+            <th>Lesson</th>
+            <th>Site</th>
+            <th>Repository</th>
+            <th>Reference</th>
+            <th>Instructor Notes</th>
+            <th>Maintainers</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>The Unix Shell</td>
+            <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/"><i
+                        class="fas fa-window-maximize"></i></a></td>
+            <td style="text-align:center"><a href="https://github.com/swcarpentry/shell-novice"><i
+                        class="fab fa-github"></i></a></td>
+            <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/reference"><i
+                        class="fas fa-eye"></i></a></td>
+            <td style="text-align:center"><a
+                    href="https://swcarpentry.github.io/shell-novice/instructor/instructor-notes"><i
+                        class="fas fa-plus"></i></a></td>
+            <td>Jacob Deppen, Benson Muite</td>
+        </tr>
+        <tr>
+            <td>Version control with Git</td>
+            <td style="text-align:center"><a href="https://swcarpentry.github.io/git-novice"><i
+                        class="fas fa-window-maximize"></i></a></td>
+            <td style="text-align:center"><a href="https://github.com/swcarpentry/git-novice"><i
+                        class="fab fa-github"></i></a></td>
+            <td style="text-align:center"><a href="https://swcarpentry.github.io/git-novice/reference"><i
+                        class="fas fa-eye"></i></a></td>
+            <td style="text-align:center"><a
+                    href="https://swcarpentry.github.io/git-novice/instructor/instructor-notes"><i
+                        class="fas fa-plus"></i></a></td>
+            <td>Erin Graham, Katherine Koziar, Martino Sorbaro</td>
+        </tr>
+        <tr>
+            <td>Programming with Python</td>
+            <td style="text-align:center"><a href="https://swcarpentry.github.io/python-novice-inflammation"><i
+                        class="fas fa-window-maximize"></i></a></td>
+            <td style="text-align:center"><a href="https://github.com/swcarpentry/python-novice-inflammation"><i
+                        class="fab fa-github"></i></a></td>
+            <td style="text-align:center"><a
+                    href="https://swcarpentry.github.io/python-novice-inflammation/reference"><i
+                        class="fas fa-eye"></i></a></td>
+            <td style="text-align:center"><a
+                    href="https://swcarpentry.github.io/python-novice-inflammation/instructor/instructor-notes"><i
+                        class="fas fa-plus"></i></a></td>
+            <td>Indraneel Chakraborty, Toan Phung, Alberto Villagran</td>
+        </tr>
+        <tr>
+            <td>Plotting and programming with Python</td>
+            <td style="text-align:center"><a href="https://swcarpentry.github.io/python-novice-gapminder"><i
+                        class="fas fa-window-maximize"></i></a></td>
+            <td style="text-align:center"><a href="https://github.com/swcarpentry/python-novice-gapminder"><i
+                        class="fab fa-github"></i></a></td>
+            <td style="text-align:center"><a href="https://swcarpentry.github.io/python-novice-gapminder/reference"><i
+                        class="fas fa-eye"></i></a></td>
+            <td style="text-align:center"><a
+                    href="https://swcarpentry.github.io/python-novice-gapminder/instructor/instructor-notes"><i
+                        class="fas fa-plus"></i></a></td>
+            <td>Allen Lee, Sourav Singh, Olav Vahtras</td>
+        </tr>
+        <tr>
+            <td>Programming with R</td>
+            <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-inflammation/"><i
+                        class="fas fa-window-maximize"></i></a></td>
+            <td style="text-align:center"><a href="https://github.com/swcarpentry/r-novice-inflammation"><i
+                        class="fab fa-github"></i></a></td>
+            <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-inflammation/reference"><i
+                        class="fas fa-eye"></i></a></td>
+            <td style="text-align:center"><a
+                    href="https://swcarpentry.github.io/r-novice-inflammation/instructor/instructor-notes"><i
+                        class="fas fa-plus"></i></a></td>
+            <td>Rohit Goswami, Hugo Gruson, Isaac Jennings</td>
+        </tr>
+        <tr>
+            <td>R for Reproducible Scientific Analysis</td>
+            <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-gapminder"><i
+                        class="fas fa-window-maximize"></i></a></td>
+            <td style="text-align:center"><a href="https://github.com/swcarpentry/r-novice-gapminder"><i
+                        class="fab fa-github"></i></a></td>
+            <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-gapminder/reference"><i
+                        class="fas fa-eye"></i></a></td>
+            <td style="text-align:center"><a
+                    href="https://swcarpentry.github.io/r-novice-gapminder/instructor/instructor-notes"><i
+                        class="fas fa-plus"></i></a></td>
+            <td>Matthieu Bruneaux, Sehrish Kanwal, Naupaka Zimmerman</td>
+        </tr>
+    </tbody>
+</table>
 ~~~
 {: .language-html}
 
@@ -287,50 +654,45 @@ Now we can get a list of row elements with
 
 ~~~
 rows = (soup
- .find(string = "Upcoming Carpentries Workshops")
+ .find(string = "Core Lessons in English")
  .find_parents()[1]
  .find("table")
  .find_all("tr"))
 ~~~
 {: .language-python}
 
-Let's focus now on the first element:
+Let's focus now on the second element (the first contains the column headings):
 
 ~~~
-rows[0]
+rows[1]
 ~~~
 {: .language-python}
 
 ~~~
 <tr>
-<td>
-<img alt="lc logo" class="flags" height="24" src="https://carpentries.org/assets/img/logos/lc.svg" title="lc workshop" width="24">
-</img></td>
-<td>
-<img alt="us" class="flags" src="https://carpentries.org/assets/img/flags/24/us.png" title="US">
-<img alt="globe image" class="flags" src="https://carpentries.org/assets/img/flags/24/w3.png" title="Online">
-<a href="https://annajiat.github.io/2021-01-22-uab-NNLM-online">University of Alabama at Birmingham (online)</a>
-<br>
-<b>Instructors:</b> Annajiat Alim Rasel, Cody Hennesy, Camilla Bressan, Mary Ann Warner
-      
-      
-	</br></img></img></td>
-<td>
-		Jan 22 - Apr 23, 2021
-	</td>
+    <td>The Unix Shell</td>
+    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/"><i
+                class="fas fa-window-maximize"></i></a></td>
+    <td style="text-align:center"><a href="https://github.com/swcarpentry/shell-novice"><i
+                class="fab fa-github"></i></a></td>
+    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/reference"><i
+                class="fas fa-eye"></i></a></td>
+    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/instructor/instructor-notes"><i
+                class="fas fa-plus"></i></a></td>
+    <td>Jacob Deppen, Benson Muite</td>
 </tr>
 ~~~
 {: .language-html}
 
 We can now split the row 
-into three table data elements:
+into six table data elements:
 
 ~~~
-td0, td1, td2 = rows[0].find_all("td")
+td0, td1, td2, td3, td4, td5 = rows[1].find_all("td")
 ~~~
 {: .language-python}
 
-If we want the link to the workshop page,
+If we want the link to the lesson page,
 we can look at the `<a>` tag in `td1`,
 and specifically at its `href` attribute:
 
@@ -341,29 +703,22 @@ link
 {: .language-python}
 
 ~~~
-'https://annajiat.github.io/2021-01-22-uab-NNLM-online'
+'https://swcarpentry.github.io/shell-novice/'
 ~~~
 {: .output}
 
-We can get a list of instructor names 
-from the text content of `td1`:
+We can get a list of maintainer names 
+from the text content of `td5`:
 
 ~~~
-td1_text_split = td1.text.split("Instructors:")
+maintainers = td5.text.split(",")
 
-# create a blank list to populate with the instructor names
-instructors = []
-
-for name in td1_text_split[1].split(","):
-    instructors.append(name.strip())
-
-print(instructors)
+print(maintainers)
 ~~~
 {: .language-python}
 
 ~~~
-# names redacted 
-['instructor 1', 'instructor 2', 'instructor 3', 'instructor 4'] 
+['Jacob Deppen', 'Benson Muite'] 
 ~~~
 {: .output}
 
@@ -384,53 +739,47 @@ print(instructors)
 > > ~~~
 > > {: .language-python}
 > >
-> > We gather that there is only one table in the soup,
-> > so that should be the right one! 
-> > We can thus use `soup.find("table")` 
-> > to reach the right element
-> > right away.
+> > We gather that there are three tables in the soup.
+> > `find_all` returns a list of them, so we can index
+> > into the list to access the one we want. For example:
+> > ~~~
+> > soup.find_all("table")[1]
+> > ~~~
+> > {: .language-python}
+> > can be used to access the second table.
 > {: .solution}
 {: .challenge}
 
-> ## List the workshops
+> ## List the Lessons
 >
-> Create a list of all the workshops,
+> Create a list of all the lessons,
 > reporting for each one:
+> - lesson name
 > - link
-> - location
-> - date
-> - names of instructors
+> - names of maintainers
 > 
 > > ## Solution
 > >
 > > ~~~
 > > rows = soup.find("table").find_all("tr")
+> >  # Remove the first row that only contains headings
+> > rows.pop(0)
+> > 
 > > def process_row(row):
-> >     _,td1,td2 = row.find_all("td")
+> >     td0,td1, _, _, _,td5 = row.find_all("td")
 > >     link = td1.find("a")["href"]
-> >
-> >     td1_location_people = td1.text.split("Instructors:")
-> >     location = td1_location_people[0].strip()
-> >     # What about helpers?
-> >     people = td1_location_people[1].split("Helpers:")
-> >     instructors_string = people[0]
-> >     # we ignore helpers, might not be present
-> >     # helpers_string = people[1] 
-> >     instructors = []
-> >     for n in instructors_string.split(","):
-> >         instructors.append(n.strip())
-> >     date = td2.text.strip()
-> >
+> >     lesson = td0.text
+> >     maintainers = td5.text.split(",")
 > >     return dict(
-> >        link = link,
-> >        location = location,
-> >        instructors = instructors,
-> >        date = date
+> >         lesson = lesson,
+> >         link = link,
+> >         maintainers = maintainers
 > >     ) 
-> >
-> > workshops = []
+> > 
+> > lessons = []
 > > for row in rows:
-> >     workshops.append(process_row(row))
+> >     lessons.append(process_row(row))
+> > print(lessons)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -532,7 +881,7 @@ and automate the interaction with it.
 
 
 [bs4-docs]: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
-[carpentries]: https://carpentries.org
+[software-carpentry-lessons]: https://software-carpentry.org/lessons/
 [epex-data]: https://www.epexspot.com/en/market-data?market_area=GB&trading_date=2022-01-25&delivery_date=2022-01-26&underlying_year=&modality=Auction&sub_modality=DayAhead&product=60&data_mode=table&period=
 [mdn-elements-reference]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 [selenium]: https://www.selenium.dev/documentation/en/webdriver/
