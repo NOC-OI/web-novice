@@ -198,6 +198,46 @@ response.text
 
 This shows us the same HTML source code as we obtained from `curl` earlier.
 
+## Another GET request example
+
+APIs, like other pieces of code, need documentation. We've already seen some examples
+of API documentation, such as [NASA’s API documentation][nasa-documentation].
+
+One popular way of creating API documentation is by generating it from the API specification (essentially a means of providing metadata for the API). One of the specification languages you are likely to hear about is called OpenAPI, a specification language for HTTP APIs. This is a machine readable format, meaning that a lot of tooling has been developed around it to accomplish tasks like the generation of API documentation.
+
+The documentation that can be generated from an OpenAPI description can be interactive, even allowing you to test API endpoints without ever leaving the documentation page. We'll see an example of this in the exercise below, as well as another example of a GET request. 
+
+> ## EDS Citation API using the documentation
+>
+> Look at [BODC's EDS citation API][eds-citation-swagger].
+> (See this [page][eds-citation-background] page for background information.)
+> Can you find out the total number of citation count for the Polar Data Centre (PDC),
+> without leaving the page?
+>
+> > ## Solution
+> > There are multiple ways to do this. One is to use the `/centre` endpoint. You could
+> > also use the `/centre/{centre_name}` endpoint, where `centre_name` is 
+> > `Polar Data Centre (PDC)`. To interact with the documentation on the page, click
+> > the `Try it out` button, enter any desired parameters, then click the `Execute` 
+> > button.
+> {: .solution}
+{: .challenge}
+
+> ## EDS Citation API using the requests library
+>
+> Can you now make exactly the same request but using the requests library, rather than just using the interactive documentation?
+>
+> > ## Solution
+> > For example:
+> > ~~~
+> > import requests
+> > r = requests.get("https://www.bodc.ac.uk/eds-citation/centre")
+> > r.text
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
+
 ## GET with parameters
 
 As we have seen when talking about `curl`, 
@@ -468,4 +508,8 @@ from the `requests` library
 [advanced-requests]: https://requests.readthedocs.io/en/master/user/advanced/
 [mmesiti-issues]: https://github.com/mmesiti/web-novice-test-repo/issues/1
 [setup]: ../setup
+[eds-citation-swagger]: https://www.bodc.ac.uk/eds-citation/docs
+[eds-citation-background]: https://eds.ukri.org/news/impacts/who-has-used-my-data-our-brand-new-citation-api
+[nasa-documentation]: https://api.nasa.gov/
+[open-api-homepage]: https://www.openapis.org/
 
