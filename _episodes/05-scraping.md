@@ -812,6 +812,8 @@ in web scraping.
 > > response = requests.get("https://psmsl.org/data/obtaining/")
 > >
 > > soup = BeautifulSoup(response.text,"html.parser")
+> >
+> > rows = soup.find_all("table")
 > > ~~~
 > > {: .language-python}
 > >
