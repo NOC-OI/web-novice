@@ -210,7 +210,7 @@ The documentation that can be generated from an OpenAPI description can be inter
 > ## EDS Citation API using the documentation
 >
 > Look at [BODC's EDS citation API][eds-citation-swagger].
-> (See this [page][eds-citation-background] page for background information.)
+> (See this [page][eds-citation-background] for background information.)
 > Can you find out the total number of citation count for the Polar Data Centre (PDC),
 > without leaving the page?
 >

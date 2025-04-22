@@ -797,11 +797,10 @@ is worth the time
 for anyone seriously interested 
 in web scraping.
 
-> ## Scraping Energy market data
+> ## Scraping the locations for tide gauge stations into a Pandas dataframe
 >
-> Look at [EPEX SPOT's data on the energy market][epex-data].
-> How would you extract the price of the energy as a function of time?
-> Can you look at other countries, and on different dates?
+> Look at [the locations for tide gauge stations][psmsl].
+> How would you extract these data as a Pandas dataframe?
 >
 > > ## Solution
 > > ~~~
@@ -810,47 +809,18 @@ in web scraping.
 > > from bs4 import BeautifulSoup
 > >
 > > # From the url displayed in the browser in the address bar 
-> > response = requests.get("https://www.epexspot.com/en/market-data",
-> >                         params=dict(market_area="GB",
-> >                                     trading_date="2021-03-19",
-> >                                     delivery_date="2021-03-20",
-> >                                     underlying_year="",
-> >                                     modality="Auction",
-> >                                     sub_modality="DayAhead",
-> >                                     product="60",
-> >                                     data_mode="table",
-> >                                     period=""))
+> > response = requests.get("https://psmsl.org/data/obtaining/")
 > >
 > > soup = BeautifulSoup(response.text,"html.parser")
 > > ~~~
 > > {: .language-python}
-> > The epex table is in two parts:
-> > 1. the first part just shows baseload and peakload prices plus some whitespace (in total its 5 lines long)
-> > 2. the rest of the data is the hourly prices and has more columns.
-> > 
-> > HTML allows variable width tables like this, but pandas doesn't like them.
-> > Lets strip off those first 5 rows
-> > to make it a valid table again append `<table>` and `</table>` to the beginning and end:
-> > ~~~
-> > rows = "<table>" +str(soup.find("table").find_all("tr")[5:]) + "</table>"
-> > ~~~
-> > {: .language-python}
+> >
 > > Then we can convert the string to a pandas dataframe:
 > > ~~~
 > > df = pandas.read_html(str(rows))[0]
 > > ~~~
 > > {: .language-python}
-> > The timestamps aren't stored in the table but a separate div, lets recreate them
-> > ~~~
-> > df['time'] = range(0,24)
-> > df = df.set_index('time')
-> > ~~~
-> > {: .language-python}
-> > we now have the EPEX data inside a pandas dataframe ready for processing, graphing etc.
-> > We can try and change the parameters 
-> > (for example, using "DE-LU") for another nation.
-> > Are you able to change the parameters for another date?
-> > Do you get different results?
+> > we now have the station location data inside a pandas dataframe ready for processing, graphing etc.
 > {: .solution}
 {: .challenge}
 
@@ -882,6 +852,6 @@ and automate the interaction with it.
 
 [bs4-docs]: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 [software-carpentry-lessons]: https://software-carpentry.org/lessons/
-[epex-data]: https://www.epexspot.com/en/market-data?market_area=GB&trading_date=2022-01-25&delivery_date=2022-01-26&underlying_year=&modality=Auction&sub_modality=DayAhead&product=60&data_mode=table&period=
+[psmsl]: https://psmsl.org/data/obtaining/
 [mdn-elements-reference]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 [selenium]: https://www.selenium.dev/documentation/en/webdriver/
