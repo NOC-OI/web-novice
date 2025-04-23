@@ -18,9 +18,17 @@ keypoints:
 - "curl can be used instead for shell-based workflows and debugging purposes."
 ---
 
-So far, we have been interacting with web APIs by using `curl` to send HTTP requests and then inspecting the responses at the command line. This is very useful for running quick checks that we are able to access the API, and debugging if we're not. However, to integrate web APIs into our software and analyses, we'd like to be able to make requests of web APIs from within Python, and work with the results.
+So far, we have been interacting with web APIs by using `curl` to send HTTP requests
+and then inspecting the responses at the command line. This is very useful for running
+quick checks that we are able to access the API, and debugging if we're not. However,
+to integrate web APIs into our software and analyses, we'd like to be able to make
+requests of web APIs from within Python, and work with the results.
 
-In principle we could make subprocess calls to `curl`, and capture and parse the results, but this would be very cumbersome. Fortunately, other people thought the same thing, and have made libraries available to help with this. Basic functionality around making and processing requests is built into the Python standard library, but far more popular is to use a package called `requests`, which is available from PyPI.
+In principle we could make subprocess calls to `curl`, and capture and parse the
+results, but this would be very cumbersome. Fortunately, other people thought the same
+thing, and have made libraries available to help with this. Basic functionality around
+making and processing requests is built into the Python standard library, but far more
+popular is to use a package called `requests`, which is available from PyPI.
 
 First off, let's check that we have `requests` installed.
 
@@ -105,7 +113,9 @@ data_reparsed
 ~~~
 {: .output}
 
-You can see that for `dicts` containing strings, integers, and lists, at least, the JSON representation looks very similar to the Python representation. The two are not always directly interchangeable, however.
+You can see that for `dicts` containing strings, integers, and lists, at least, the
+JSON representation looks very similar to the Python representation. The two are not
+always directly interchangeable, however.
 
 The Python `requests` library 
 can parse JSON and serialise the objects,
@@ -124,9 +134,11 @@ is the HyperText Markup Language, HTML.
 
 ## HTTP verbs
 
-Up until now we have exclusively used GET requests, to retrieve information from a server. In fact, the HTTP protocol has a number of such _verbs_, 
+Up until now we have exclusively used GET requests, to retrieve information from a
+server. In fact, the HTTP protocol has a number of such _verbs_, 
 each associated with an operation falling in
-one of four categories: Create, Read, Update, or Delete (sometimes called the _CRUD_ categories).
+one of four categories: Create, Read, Update, or Delete (sometimes called the _CRUD_
+categories).
 The most common verbs are:
 
 - GET: to read resources (these requests have no body);
@@ -164,7 +176,8 @@ text/html
 ~~~
 {: .output}
 
-Our expectations are confirmed. We can also check the `Content-Length` header to see how much data we expect to find in the body:
+Our expectations are confirmed. We can also check the `Content-Length` header to see
+how much data we expect to find in the body:
 
 ~~~
 response.headers["Content-Length"]
@@ -172,7 +185,7 @@ response.headers["Content-Length"]
 {: .language-python}
 
 ~~~
-55036
+29741
 ~~~
 {: .output}
 
@@ -185,7 +198,7 @@ len(response.text)
 {: .language-python}
 
 ~~~
-55036
+29741
 ~~~
 {: .output}
 
@@ -196,16 +209,21 @@ response.text
 ~~~
 {: .language-python}
 
-This shows us the same HTML source code as we obtained from `curl` earlier.
-
 ## Another GET request example
 
 APIs, like other pieces of code, need documentation. We've already seen some examples
 of API documentation, such as [NASA’s API documentation][nasa-documentation].
 
-One popular way of creating API documentation is by generating it from the API specification (essentially a means of providing metadata for the API). One of the specification languages you are likely to hear about is called OpenAPI, a specification language for HTTP APIs. This is a machine readable format, meaning that a lot of tooling has been developed around it to accomplish tasks like the generation of API documentation.
+One popular way of creating API documentation is by generating it from the API
+specification (essentially a means of providing metadata for the API). One of the
+specification languages you are likely to hear about is called OpenAPI, a specification
+language for HTTP APIs. This is a machine readable format, meaning that a lot of tooling
+has been developed around it for tasks like the generation of API documentation.
 
-The documentation that can be generated from an OpenAPI description can be interactive, even allowing you to test API endpoints without ever leaving the documentation page. We'll see an example of this in the exercise below, as well as another example of a GET request. 
+The documentation that can be generated from an OpenAPI description can be interactive,
+even allowing you to test API endpoints without ever leaving the documentation page.
+We'll see an example of this in the exercise below, as well as another example of a GET
+request. 
 
 > ## EDS Citation API using the documentation
 >
@@ -225,7 +243,8 @@ The documentation that can be generated from an OpenAPI description can be inter
 
 > ## EDS Citation API using the requests library
 >
-> Can you now make exactly the same request but using the requests library, rather than just using the interactive documentation?
+> Can you now make exactly the same request but using the requests library, rather than
+just using the interactive documentation?
 >
 > > ## Solution
 > > For example:
@@ -244,7 +263,7 @@ As we have seen when talking about `curl`,
 some endpoints accept parameters in GET requests. 
 Using Python's `requests` library, 
 the call to NASA's APOD endoint
-that 
+that we previously made
 ~~~
 $ curl -i "https://api.nasa.gov/planetary/apod?date=2005-04-01&api_key=<your-api-key>"
 ~~~
@@ -295,10 +314,18 @@ using a dictionary to contain all the arguments.
 > > docker-introduction-2021 : 2021-01-26T19:20:19Z
 > > grid : 2021-03-10T11:59:09Z
 > > training-cloud-vm : 2021-03-23T13:43:03Z
-> > pl_curves : 2021-03-24T14:28:25Z
 > > ccintro-2021 : 2021-09-21T13:57:35Z
 > > git-novice : 2021-11-24T10:21:58Z
-> > aber-pubs : 2021-11-24T14:19:27Z
+> > docker-introduction-2022 : 2022-01-24T17:31:39Z
+> > blogs : 2022-09-07T15:56:33Z
+> > ccintro-2022 : 2022-09-15T15:51:29Z
+> > aber-pubs : 2022-11-23T13:41:57Z
+> > agile_snails_coding_challenge : 2022-11-23T15:45:05Z
+> > team_7564616d_models : 2022-11-23T15:45:42Z
+> > coding-challenge-2022_23-task1 : 2023-02-08T17:02:07Z
+> > pl_curves : 2023-03-29T22:38:10Z
+> > ccintro-2023 : 2023-09-18T13:58:06Z
+> > marketintro-2023 : 2023-11-16T17:12:00Z
 > > ~~~
 > > {: .output}
 > {: .solution} 
@@ -307,18 +334,25 @@ using a dictionary to contain all the arguments.
 
 ## Another GET request with parameters example - Open-Meteo API 
 
-As an additional example of using requests to connect to an API rather than a plain web site we’ll use the [Open-Meteo API][open-meteo-api]. (This is free for non-commercial use, so does not require an API key.)
+As an additional example of using requests to connect to an API rather than a plain web
+site we’ll use the [Open-Meteo API][open-meteo-api]. (This is free for non-commercial
+use, so does not require an API key.)
 
-Looking at the [documentation for this API][open-meteo-api-docs] (specifically, the API URL under the API Response sction), we can build a URL to access a temperature forecast for the next three days for NOC Southampton. This URL has four parameters (latitude, longitude, variable we are accessing and number of days we're interested in). 
+Looking at the [documentation for this API][open-meteo-api-docs] (specifically, the API
+URL under the API Response sction), we can build a URL to access a temperature forecast
+for the next three days for NOC Southampton. This URL has four parameters (latitude,
+longitude, variable we are accessing and number of days we're interested in). 
 
-As we saw in the previous episode, with curl from the command line, we would have to use the following command
+As we saw in the previous episode, with curl from the command line, we would have to use
+the following command
 
 ~~~
 curl "https://api.open-meteo.com/v1/forecast?latitude=50.89&longitude=-1.39&hourly=temperature_2m&forecast_days=3"
 ~~~
 {: .language-bash}
 
-building the parameter string explicitly. This is also the syntax that is used in a browser address bar:
+building the parameter string explicitly. This is also the syntax that is used in a
+browser address bar:
 
 ~~~
 "protocol://host/resource/path?parname1=value1&parname2=value2..."
@@ -383,7 +417,8 @@ data["hourly"]["temperature_2m"]
 
 > ## Another location
 >
-> Refer back to the [the API reference][open-meteo-api-docs]. Can you produce a forecast for a fortnight for precipation probability at NOC Liverpool?
+> Refer back to the [the API reference][open-meteo-api-docs]. Can you produce a forecast
+for a fortnight for precipation probability at NOC Liverpool?
 >
 > > ## Solution
 > > We query the MetOffice API using something similar to the following:
@@ -430,7 +465,8 @@ then the instructions in the [Setup][setup] walk through how to obtain one.
 To POST requests, we can use the function `requests.post`.
 
 For this example, we are going 
-to post a comment on an [issue on GitHub](https://github.com/mmesiti/web-novice-test-repo/issues/1).
+to post a comment on an
+[issue on GitHub](https://github.com/mmesiti/web-novice-test-repo/issues/1).
 Issues on GitHub are a simple way 
 to keep track of bugs, 
 and a great way to manage focused discussions

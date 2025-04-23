@@ -314,7 +314,7 @@ the table we are interested in:
 {: .language-python}
 
 ~~~
-div class="prose h2-wrap max-w-none">
+<div class="prose h2-wrap max-w-none">
     <p>A Software Carpentry workshop is taught by at least one trained and badged Instructor. Over the course of the
         workshop, Instructors teach our three core topics: the Unix shell, version control with Git, and a programming
         language (Python or R). Curricula for these lessons in English and Spanish (select lessons only) are below.</p>
