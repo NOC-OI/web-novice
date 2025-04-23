@@ -231,8 +231,8 @@ The documentation that can be generated from an OpenAPI description can be inter
 > > For example:
 > > ~~~
 > > import requests
-> > r = requests.get("https://www.bodc.ac.uk/eds-citation/centre")
-> > r.text
+> > response = requests.get("https://www.bodc.ac.uk/eds-citation/centre")
+> > response.json()
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -502,6 +502,96 @@ one could also use a `Session` object
 from the `requests` library
 (see [Advanced Usage][advanced-requests]).
 
+## Another GET request example - Open-Meteo API 
+
+As an additional example of using requests to connect to an API rather than a plain web site we’ll use the [Open-Meteo API][open-meteo-api]. (This is free for non-commercial use, so does not require an API key.)
+
+Looking at the [documentation for this API][open-meteo-api-docs] (specifically, the API URL under the API Response sction), we can build a URL to access a temperature forecast for the next three days for NOC Southampton. This URL has four parameters (latitude, longitude, variable we are accessing and number of days we're interested in). 
+
+As we saw in the previous episode, with curl from the command line, we would have to use the following command
+
+~~~
+curl "https://api.open-meteo.com/v1/forecast?latitude=50.89&longitude=-1.39&hourly=temperature_2m&forecast_days=3"
+~~~
+{: .language-bash}
+
+building the parameter string explicitly. This is also the syntax that is used in a browser address bar:
+
+~~~
+"protocol://host/resource/path?parname1=value1&parname2=value2..."
+~~~
+
+However, using the `requests` library allows us to use a nicer syntax:
+
+~~~
+response = requests.get(url="https://api.open-meteo.com/v1/forecast", params={"latitude": "50.89", "longitude": "-1.39", "hourly": "temperature_2m", "forecast_days": "3"})
+response
+~~~
+{: .language-python}
+
+~~~
+<Response [200]>
+~~~
+{: .output}
+
+As we saw previously, the code 200 means "success".
+To make sure the response contains what we expect,
+let's quickly print its headers 
+(which has the structure of a dictionary):
+
+~~~
+for key, value in response.headers.items():
+    print((key, value))
+~~~
+{: .language-python}
+
+~~~
+('Date', 'Wed, 23 Apr 2025 12:57:34 GMT')
+('Content-Type', 'application/json; charset=utf-8')
+('Transfer-Encoding', 'chunked')
+('Connection', 'keep-alive')
+('Content-Encoding', 'deflate')
+~~~
+{: .output}
+
+As expected the `Content-Type` is `application-json`.
+We can now look at the body of the response:
+
+~~~
+response.text[:100]
+~~~
+{: .language-python}
+
+~~~
+'{"latitude":50.86,"longitude":-1.3800001,"generationtime_ms":0.024437904357910156,"utc_offset_second'
+~~~
+{: .output}
+
+As mentioned, the `requests` library 
+can parse this JSON representation 
+and return a more convenient Python object,
+using which we can access the inner data:
+
+~~~
+data = response.json()
+data["hourly"]["temperature_2m"]
+~~~
+{: .language-python}
+
+> ## Another location
+>
+> Refer back to the [the API reference][open-meteo-api-docs]. Can you produce a forecast for a fortnight for precipation probability at NOC Liverpool?
+>
+> > ## Solution
+> > We query the MetOffice API using something similar to the following:
+> >
+> > ~~~
+> > response = requests.get(url="https://api.open-meteo.com/v1/forecast", params={"latitude": "53.40", "longitude": "-2.97", "hourly": "precipitation_probability", "forecast_days": "14"})
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
+
 
 
 [github-api-docs-repo]: https://docs.github.com/en/rest/reference/repos
@@ -512,4 +602,5 @@ from the `requests` library
 [eds-citation-background]: https://eds.ukri.org/news/impacts/who-has-used-my-data-our-brand-new-citation-api
 [nasa-documentation]: https://api.nasa.gov/
 [open-api-homepage]: https://www.openapis.org/
+[open-meteo-api]: https://open-meteo.com/
 
