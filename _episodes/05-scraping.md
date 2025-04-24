@@ -46,7 +46,8 @@ Things to notice:
   and form (approximately) a tree. 
 - Most elements have an opening tag `<tagname>`, 
   and a corresponding closing one `</tagname>`.
-  For examples, see the [reference on the Mozilla Developer Network][mdn-elements-reference]
+  For examples, see the
+  [reference on the Mozilla Developer Network][mdn-elements-reference]
 - Each element can have __attributes__, 
   defined in the opening tag.
 
@@ -822,7 +823,8 @@ in web scraping.
 > > df = pandas.read_html(str(rows))[0]
 > > ~~~
 > > {: .language-python}
-> > we now have the station location data inside a pandas dataframe ready for processing, graphing etc.
+> > we now have the station location data inside a pandas dataframe ready for
+> > processing, graphing etc.
 > {: .solution}
 {: .challenge}
 
