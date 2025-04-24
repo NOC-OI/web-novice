@@ -336,10 +336,10 @@ using a dictionary to contain all the arguments.
 
 As an additional example of using requests to connect to an API rather than a plain web
 site we’ll use the [Open-Meteo API][open-meteo-api]. (This is free for non-commercial
-use, so does not require an API key.)
+use and does not require an API key.)
 
 Looking at the [documentation for this API][open-meteo-api-docs] (specifically, the API
-URL under the API Response sction), we can build a URL to access a temperature forecast
+URL under the API Response section), we can build a URL to access a temperature forecast
 for the next three days for NOC Southampton. This URL has four parameters (latitude,
 longitude, variable we are accessing and number of days we're interested in). 
 
@@ -640,4 +640,5 @@ from the `requests` library
 [nasa-documentation]: https://api.nasa.gov/
 [open-api-homepage]: https://www.openapis.org/
 [open-meteo-api]: https://open-meteo.com/
+[open-meteo-api-docs]: https://open-meteo.com/en/docs
 
