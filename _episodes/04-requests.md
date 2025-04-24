@@ -633,7 +633,7 @@ from the `requests` library
 
 [github-api-docs-repo]: https://docs.github.com/en/rest/reference/repos
 [advanced-requests]: https://requests.readthedocs.io/en/master/user/advanced/
-[mmesiti-issues]: https://github.com/mmesiti/web-novice-test-repo/issues/1
+[mmesiti-issues]: https://github.com/NOC-OI/web-novice-test-repo/issues/1
 [setup]: ../setup
 [eds-citation-swagger]: https://www.bodc.ac.uk/eds-citation/docs
 [eds-citation-background]: https://eds.ukri.org/news/impacts/who-has-used-my-data-our-brand-new-citation-api
