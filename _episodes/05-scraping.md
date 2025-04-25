@@ -213,59 +213,10 @@ inside a `<h2>` tag (code reindented for clarity)
                             class="fas fa-plus"></i></a></td>
                 <td>Erin Graham, Katherine Koziar, Martino Sorbaro</td>
             </tr>
-            <tr>
-                <td>Programming with Python</td>
-                <td style=text-align:center><a href=https://swcarpentry.github.io/python-novice-inflammation><i
-                            class="fas fa-window-maximize"></i></a></td>
-                <td style=text-align:center><a href=https://github.com/swcarpentry/python-novice-inflammation><i
-                            class="fab fa-github"></i></a></td>
-                <td style=text-align:center><a
-                        href=https://swcarpentry.github.io/python-novice-inflammation/reference><i
-                            class="fas fa-eye"></i></a></td>
-                <td style=text-align:center><a
-                        href=https://swcarpentry.github.io/python-novice-inflammation/instructor/instructor-notes><i
-                            class="fas fa-plus"></i></a></td>
-                <td>Indraneel Chakraborty, Toan Phung, Alberto Villagran</td>
-            </tr>
-            <tr>
-                <td>Plotting and programming with Python</td>
-                <td style=text-align:center><a href=https://swcarpentry.github.io/python-novice-gapminder><i
-                            class="fas fa-window-maximize"></i></a></td>
-                <td style=text-align:center><a href=https://github.com/swcarpentry/python-novice-gapminder><i
-                            class="fab fa-github"></i></a></td>
-                <td style=text-align:center><a href=https://swcarpentry.github.io/python-novice-gapminder/reference><i
-                            class="fas fa-eye"></i></a></td>
-                <td style=text-align:center><a
-                        href=https://swcarpentry.github.io/python-novice-gapminder/instructor/instructor-notes><i
-                            class="fas fa-plus"></i></a></td>
-                <td>Allen Lee, Sourav Singh, Olav Vahtras</td>
-            </tr>
-            <tr>
-                <td>Programming with R</td>
-                <td style=text-align:center><a href=https://swcarpentry.github.io/r-novice-inflammation /><i
-                        class="fas fa-window-maximize"></i></a></td>
-                <td style=text-align:center><a href=https://github.com/swcarpentry/r-novice-inflammation><i
-                            class="fab fa-github"></i></a></td>
-                <td style=text-align:center><a href=https://swcarpentry.github.io/r-novice-inflammation/reference><i
-                            class="fas fa-eye"></i></a></td>
-                <td style=text-align:center><a
-                        href=https://swcarpentry.github.io/r-novice-inflammation/instructor/instructor-notes><i
-                            class="fas fa-plus"></i></a></td>
-                <td>Rohit Goswami, Hugo Gruson, Isaac Jennings</td>
-            </tr>
-            <tr>
-                <td>R for Reproducible Scientific Analysis</td>
-                <td style=text-align:center><a href=https://swcarpentry.github.io/r-novice-gapminder><i
-                            class="fas fa-window-maximize"></i></a></td>
-                <td style=text-align:center><a href=https://github.com/swcarpentry/r-novice-gapminder><i
-                            class="fab fa-github"></i></a></td>
-                <td style=text-align:center><a href=https://swcarpentry.github.io/r-novice-gapminder/reference><i
-                            class="fas fa-eye"></i></a></td>
-                <td style=text-align:center><a
-                        href=https://swcarpentry.github.io/r-novice-gapminder/instructor/instructor-notes><i
-                            class="fas fa-plus"></i></a></td>
-                <td>Matthieu Bruneaux, Sehrish Kanwal, Naupaka Zimmerman</td>
-            </tr>
+.
+.
+.
+.
         </tbody>
     </table>
 </div>
@@ -364,62 +315,7 @@ the table we are interested in:
                                 class="fas fa-plus"></i></a></td>
                     <td>Erin Graham, Katherine Koziar, Martino Sorbaro</td>
                 </tr>
-                <tr>
-                    <td>Programming with Python</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/python-novice-inflammation"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/python-novice-inflammation"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/python-novice-inflammation/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/python-novice-inflammation/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>Indraneel Chakraborty, Toan Phung, Alberto Villagran</td>
-                </tr>
-                <tr>
-                    <td>Plotting and programming with Python</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/python-novice-gapminder"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/python-novice-gapminder"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/python-novice-gapminder/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/python-novice-gapminder/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>Allen Lee, Sourav Singh, Olav Vahtras</td>
-                </tr>
-                <tr>
-                    <td>Programming with R</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-inflammation/"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/r-novice-inflammation"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/r-novice-inflammation/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/r-novice-inflammation/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>Rohit Goswami, Hugo Gruson, Isaac Jennings</td>
-                </tr>
-                <tr>
-                    <td>R for Reproducible Scientific Analysis</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-gapminder"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/r-novice-gapminder"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/r-novice-gapminder/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/r-novice-gapminder/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>Matthieu Bruneaux, Sehrish Kanwal, Naupaka Zimmerman</td>
-                </tr>
+...
             </tbody>
         </table>
     </div>
@@ -450,96 +346,7 @@ the table we are interested in:
                                 class="fas fa-plus"></i></a></td>
                     <td>VerÃ³nica JimÃ©nez, Clara Llebot, Heladia Salgado</td>
                 </tr>
-                <tr>
-                    <td>Control de versiones con Git</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice-es"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/git-novice-es"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/git-novice-es/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/git-novice-es/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>Jean-Paul Courneya, Clara Llebot, Mariana Patricia Gomez Nicolas</td>
-                </tr>
-                <tr>
-                    <td>R para AnÃ¡lisis CientÃ­ficos Reproducibles</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-gapminder-es"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/r-novice-gapminder-es"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/r-novice-gapminder-es/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/r-novice-gapminder-es/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>VerÃ³nica JimÃ©nez, Heladia Salgado, Nelly SÃ©lem</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <h2 id="additional-lessons">Additional Lessons</h2>
-    <p>These lessons are not part of the core Software Carpentry curriculum but can be offered as supplementary lessons.
-        Please <a href="https://carpentries.org/contact">contact us</a> for more information.</p>
-    <div class="table-striped overflow-x-auto">
-        <table>
-            <thead>
-                <tr>
-                    <th>Lesson</th>
-                    <th>Site</th>
-                    <th>Repository</th>
-                    <th>Reference</th>
-                    <th>Instructor Notes</th>
-                    <th>Maintainers</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Automation and Make</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/make-novice"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/make-novice"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/make-novice/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/make-novice/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>Gerard Capes</td>
-                </tr>
-                <tr>
-                    <td>Programming with MATLAB</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/matlab-novice-inflammation"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/matlab-novice-inflammation"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/matlab-novice-inflammation/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/matlab-novice-inflammation/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>Daniel Cummins, Padem dhar Dwivedi</td>
-                </tr>
-                <tr>
-                    <td>Using Databases and SQL</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/sql-novice-survey"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/sql-novice-survey"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/sql-novice-survey/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/sql-novice-survey/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>Henry Senyondo</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+...
 ~~~
 {: .language-html}
 
