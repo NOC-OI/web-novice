@@ -421,7 +421,7 @@ data["hourly"]["temperature_2m"]
 for a fortnight for precipation probability at NOC Liverpool?
 >
 > > ## Solution
-> > We query the MetOffice API using something similar to the following:
+> > We query the Open-Meteo API using something similar to the following:
 > >
 > > ~~~
 > > response = requests.get(url="https://api.open-meteo.com/v1/forecast", params={"latitude": "53.40", "longitude": "-2.97", "hourly": "precipitation_probability", "forecast_days": "14"})
