@@ -134,6 +134,11 @@ example can be found [on GitHub][newton-docs].
 >
 >> ## Solution
 >>
+>> ~~~
+>> curl "https://newton.vercel.app/api/v2/simplify/0^(-1)"
+>> ~~~
+>> {: .language-bash}
+>>
 >> The response code for this request is `200` (OK), but the `"result"`
 >indicates that an error occurred.
 >>
