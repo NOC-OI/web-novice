@@ -466,7 +466,7 @@ To POST requests, we can use the function `requests.post`.
 
 For this example, we are going 
 to post a comment on an
-[issue on GitHub](https://github.com/mmesiti/web-novice-test-repo/issues/1).
+[issue on GitHub](https://github.com/NOC-OI/web-novice-test-repo/issues/1).
 Issues on GitHub are a simple way 
 to keep track of bugs, 
 and a great way to manage focused discussions
@@ -507,7 +507,7 @@ Finally, we will post the comment on GitHub
 and make sure we get a success code:
 
 ~~~
-response = requests.post(url="https://api.github.com/repos/mmesiti/web-novice-test-repo/issues/1/comments",
+response = requests.post(url="https://api.github.com/repos/NOC-OI/web-novice-test-repo/issues/1/comments",
               data=body,
               auth=auth)
 response
@@ -559,7 +559,7 @@ and check that our new comment is there.
 > > The body of the request is accessible just with
 > >
 > > ~~~
-> > response.requests.body
+> > response.request.body
 > > ~~~
 > > {: .language-python}
 > >
@@ -596,7 +596,7 @@ and check that our new comment is there.
 >
 > > ## Solution
 > > ~~~
-> > r = requests.post(url="https://api.github.com/repos/mmesiti/web-novice-test-repo/issues/1/comments",data=body)
+> > r = requests.post(url="https://api.github.com/repos/NOC-OI/web-novice-test-repo/issues/1/comments",data=body)
 > > r
 > > ~~~
 > > {: .language-python}

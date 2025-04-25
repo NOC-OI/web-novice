@@ -33,7 +33,7 @@ To do this, might decide to use an Access Token
 To get one:
 
 - Visit [GitHub][github] and log in.
-- In Settings > Developer Settings > Personal Access Token,
+- In Settings > Developer Settings > Personal Access Token > Tokens (classic)
   click on "Generate new token". 
 - In the options, tick only 
   the "public_repo" option under "repo", 
