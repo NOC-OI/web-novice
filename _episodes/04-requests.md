@@ -279,7 +279,7 @@ using a dictionary to contain all the arguments.
 
 > ## Get a list of GitHub repositories 
 > 
-> The CDT-AIMLAC GitHub organisation (`cdt-aimlac`) has a number of repositories.
+> The CDT-AIMLAC GitHub organisation [cdt-aimlac][cdt-aimlac-repos] has a number of repositories.
 > Using the [official API documentation of GitHub][github-api-docs-repo],
 > can you list their name, ordered in ascending order
 > by last updated time? 
@@ -641,4 +641,4 @@ from the `requests` library
 [open-api-homepage]: https://www.openapis.org/
 [open-meteo-api]: https://open-meteo.com/
 [open-meteo-api-docs]: https://open-meteo.com/en/docs
-
+[cdt-aimlac-repos]: https://github.com/orgs/cdt-aimlac-repo
