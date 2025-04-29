@@ -19,7 +19,6 @@ objectives:
 > * [Sentinel 1/2/3 satellite data On-Demand Production API][copernicus]
 > * [Global Fishing Watch][global-fishing-watch]
 > * [NOAA ERDDAP][NOAA-ERDDAP]
-> * [World Ocean Database][WOD]
 > * [EMODnet web services][EMODNET]
 > * [ARGO Float API][ARGO]
 > * [Difters API][Drifters]
