@@ -641,4 +641,4 @@ from the `requests` library
 [open-api-homepage]: https://www.openapis.org/
 [open-meteo-api]: https://open-meteo.com/
 [open-meteo-api-docs]: https://open-meteo.com/en/docs
-[cdt-aimlac-repos]: https://github.com/orgs/cdt-aimlac-repo
+[cdt-aimlac-repos]: https://github.com/orgs/CDT-AIMLAC/repositories
