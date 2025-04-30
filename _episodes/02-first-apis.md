@@ -130,7 +130,7 @@ example can be found [on GitHub][newton-docs].
 > Use `curl -i` to see both the headers and the response. Do these match what
 > you expect?
 >
-> (You will need to enclose the URl in quotes.)
+> (You will need to enclose the URL in quotes.)
 >
 >> ## Solution
 >>
