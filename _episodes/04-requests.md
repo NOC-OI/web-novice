@@ -566,7 +566,7 @@ and check that our new comment is there.
 > > ~~~
 > > '{"body": "A test comment"}'
 > > ~~~
-> >{: .output}
+> > {: .output}
 > >
 > > And the type is `PreparedRequest`:
 > > 
