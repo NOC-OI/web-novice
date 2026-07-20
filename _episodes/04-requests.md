@@ -570,7 +570,7 @@ and check that our new comment is there.
 > >
 > > And the type is `PreparedRequest`:
 > > 
->> > ~~~
+> > ~~~
 > > type(response.request)
 > > ~~~
 > > {: .language-python}
