@@ -569,6 +569,7 @@ and check that our new comment is there.
 > >{: .output}
 > >
 > > And the type is `PreparedRequest`:
+> > 
 >> > ~~~
 > > type(response.request)
 > > ~~~
