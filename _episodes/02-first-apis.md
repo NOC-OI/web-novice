@@ -7,7 +7,7 @@ questions:
 - "How can responses from web APIs arrive?"
 - "How can requests to web APIs be authenticated?"
 objectives:
-- "Be able to make requests to web APIs using `curl` using endpoints, query parameters, and JSON data."
+- "Be able to make requests to web APIs using `curl`, endpoints, query parameters, and JSON data."
 - "Be able to identify responses in JSON."
 - "Be able to authenticate to web APIs with passwords and authentication tokens."
 keypoints:
