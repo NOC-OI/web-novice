@@ -21,12 +21,11 @@ in this episode we are going
 to use
 the Beautiful Soup Python package
 for web scraping
-to find all the relevant information
-about Software Carpentry lessons.
+to find information about a buoy from NOAA's National Data Buoy Centre (NDBC).
 
 ## Exploring HTML code in the browser
 
-Navigate to [The Software Carpentry Lessons][software-carpentry-lessons].
+Navigate to [the station page for station 46014][national-data-buoy-centre].
 The page we see has been rendered by the browser
 from the HTML, CSS (Cascading Style Sheets) and JavaScript code
 that is available or linked in the page in some way.
@@ -136,13 +135,13 @@ pip install beautifulsoup4
 Once we are sure the BeautifulSoup is available,
 we can import the necessary libraries in Python
 and use `requests` to GET 
-the Software Carpentries website content:
+the NDBC website content:
 
 ~~~
 import requests
 from bs4 import BeautifulSoup
 
-response = requests.get("https://software-carpentry.org/lessons/")
+response = requests.get("https://www.ndbc.noaa.gov/station_page.php?station=46014")
 response
 ~~~
 {: .language-python}
@@ -168,58 +167,66 @@ soup = BeautifulSoup(markup=response.text,
 
 Looking at the HTML code,
 we see that just above the first table 
-there is the text "Core Lessons in English"
-inside a `<h2>` tag (code reindented for clarity)
+there is the text "Conditions at 46014 as of"
+inside a `<table>` tag (code reindented for clarity)
 
 ~~~
 ...
-<h2 id=core-lessons-in-english>Core Lessons in English</h2>
-<div class="table-striped overflow-x-auto">
-    <table>
-        <thead>
-            <tr>
-                <th>Lesson</th>
-                <th>Site</th>
-                <th>Repository</th>
-                <th>Reference</th>
-                <th>Instructor Notes</th>
-                <th>Maintainers</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>The Unix Shell</td>
-                <td style=text-align:center><a href=https://swcarpentry.github.io/shell-novice /><i
-                        class="fas fa-window-maximize"></i></a></td>
-                <td style=text-align:center><a href=https://github.com/swcarpentry/shell-novice><i
-                            class="fab fa-github"></i></a></td>
-                <td style=text-align:center><a href=https://swcarpentry.github.io/shell-novice/reference><i
-                            class="fas fa-eye"></i></a></td>
-                <td style=text-align:center><a
-                        href=https://swcarpentry.github.io/shell-novice/instructor/instructor-notes><i
-                            class="fas fa-plus"></i></a></td>
-                <td>Jacob Deppen, Benson Muite</td>
-            </tr>
-            <tr>
-                <td>Version control with Git</td>
-                <td style=text-align:center><a href=https://swcarpentry.github.io/git-novice><i
-                            class="fas fa-window-maximize"></i></a></td>
-                <td style=text-align:center><a href=https://github.com/swcarpentry/git-novice><i
-                            class="fab fa-github"></i></a></td>
-                <td style=text-align:center><a href=https://swcarpentry.github.io/git-novice/reference><i
-                            class="fas fa-eye"></i></a></td>
-                <td style=text-align:center><a
-                        href=https://swcarpentry.github.io/git-novice/instructor/instructor-notes><i
-                            class="fas fa-plus"></i></a></td>
-                <td>Erin Graham, Katherine Koziar, Martino Sorbaro</td>
-            </tr>
-.
-.
-.
-.
-        </tbody>
-    </table>
-</div>
+<table class="currentobs"><caption class="titleDataHeader">Conditions at 46014 as of<br>(12:30 am PDT)<br>0730 GMT on 07/22/2026:</caption>
+<tbody><tr>
+	<td class="parmform" colspan="2">
+<form name="uom_m" action="/station_page.php" method="get">
+<input type="hidden" name="station" value="46014">
+<label for="uom">Unit of Measure: </label><select name="uom" id="uom" size="1">
+<option value="E" selected="selected"> Imperial</option>
+<option value="M"> Metric</option>
+</select>&nbsp;&nbsp;
+<label for="tz">Time Zone: </label><select name="tz" id="tz" size="1">
+<option value="STN">Station Local Time</option>
+<option value="GMT">Greenwich Mean Time [GMT]</option>
+<option value="BST">British Summer Time [GMT+1]</option>
+<option value="EGT">Eastern Greenland [GMT-1]</option>
+<option value="AZOT">Azores [GMT-2]</option>
+<option value="WGT">Western Greenland [GMT-3]</option>
+<option value="AST">Atlantic Standard [GMT-4]</option>
+<option value="EST">US/Eastern Standard</option>
+<option value="CST">US/Central Standard</option>
+<option value="MST">US/Mountain Standard</option>
+<option value="PST">US/Pacific Standard</option>
+<option value="AKST">Alaska Standard [GMT-9]</option>
+<option value="HST">Hawaii Standard [GMT-10]</option>
+<option value="HAST">Hawaii-Aleutian Standard [GMT-10]</option>
+<option value="SST">Samoa Standard [GMT-11]</option>
+<option value="IDLW">International Date Line West [GMT-12]</option>
+<option value="WET">Western European [GMT+0]</option>
+<option value="CET">Central European [GMT+1]</option>
+<option value="EET">Eastern European [GMT+2]</option>
+<option value="MSK">Moscow [GMT+3]</option>
+<option value="GMT+4">GMT+4</option>
+<option value="PKT">Pakistan Standard [GMT+5]</option>
+<option value="GMT+6">GMT+6</option>
+<option value="ICT">Indochina Time [GMT+7]</option>
+<option value="HKT">Hong Kong [GMT+8]</option>
+<option value="JST">Japan Standard [GMT+9]</option>
+<option value="CHST">Chamorro Standard [GMT+10]</option>
+<option value="ZP11">GMT+11</option>
+<option value="IDLE">International Date Line East [GMT+12]</option>
+</select>&nbsp;&nbsp;<input type="submit" value=" Select "></form>
+<p class="smallertext"><i>Click on the graph icon in the table below to see a time series plot of the last five days of that observation.</i></p></td></tr><tr><td><a href="/show_plot.php?station=46014&meas=wdir&uom=E&tz=PST"><img alt="5-day plot - Wind Direction" title="5-day plot - Wind Direction" src="/images/graph04.gif" width="21" height="20"></a> Wind Direction (WDIR):</td><td>ESE ( 120 deg true )</td></tr>
+<tr><td><a href="/show_plot.php?station=46014&meas=wspd&uom=E&tz=PST"><img alt="5-day plot - Wind Speed" title="5-day plot - Wind Speed" src="/images/graph04.gif" width="21" height="20"></a> Wind Speed (WSPD):</td><td>  7.8 kts</td>
+</tr><tr><td><a href="/show_plot.php?station=46014&meas=wgst&uom=E&tz=PST"><img alt="5-day plot - Wind Gust" title="5-day plot - Wind Gust" src="/images/graph04.gif" width="21" height="20"></a> Wind Gust (GST):</td><td>  9.7 kts</td>
+</tr>
+<tr><td><a href="/show_plot.php?station=46014&meas=pres&uom=E&tz=PST"><img alt="5-day plot - Atmospheric Pressure" title="5-day plot - Atmospheric Pressure" src="/images/graph04.gif" width="21" height="20"></a> Atmospheric Pressure (PRES):</td><td>29.95 in</td>
+</tr>
+<tr><td><a href="/show_plot.php?station=46014&meas=wtmp&uom=E&tz=PST"><img alt="5-day plot - Water Temperature" title="5-day plot - Water Temperature" src="/images/graph04.gif" width="21" height="20"></a> Water Temperature (WTMP):</td><td> 58.8 &deg;F</td>
+</tr>
+<tr><td><a href="/show_plot.php?station=46014&meas=w10m&uom=E&tz=PST"><img alt="5-day plot - Wind Speed at 10 Meters" title="5-day plot - Wind Speed at 10 Meters" src="/images/graph04.gif" width="21" height="20"></a> Wind Speed at 10 meters (WSPD10M):</td><td>  9.7 kts</td>
+</tr>
+<tr><td><a href="/show_plot.php?station=46014&meas=w20m&uom=E&tz=PST"><img alt="5-day plot - Wind Speed at 20 Meters" title="5-day plot - Wind Speed at 20 Meters" src="/images/graph04.gif" width="21" height="20"></a> Wind Speed at 20 meters (WSPD20M):</td><td>  9.7 kts</td>
+</tr>
+<tr><td colspan="2"><a href="/show_plot.php?station=46014&meas=wdpr&uom=E&tz=PST"><img alt="5-day plot -  Wind Speed, Wind Gust and Atmospheric Pressure" title="5-day plot -  Wind Speed, Wind Gust and Atmospheric Pressure" src="/images/graph04.gif" width="21" height="20"></a> <a href="/show_plot.php?station=46014&meas=wdpr&uom=E&tz=PST">Combined plot of Wind Speed, Gust, and Air Pressure</a></td>
+</tr>
+</tbody></table>
 ...
 ~~~
 {: .language-html}
@@ -230,12 +237,12 @@ that contains that text,
 using the `string` keyword argument:
 
 ~~~
-(soup.find(string="Core Lessons in English"))
+(soup.find(string="Conditions at 46014 as of"))
 ~~~
 {: .language-python}
 
 ~~~
-'Core Lessons in English'
+'Conditions at 46014 as of'
 ~~~
 {: .output}
 
@@ -260,216 +267,83 @@ is the one that also contains
 the table we are interested in:
 ~~~
 (soup
- .find(string = "Core Lessons in English")
+ .find(string = "Conditions at 46014 as of")
  .find_parents()[1])
 ~~~
 {: .language-python}
 
 ~~~
-<div class="prose h2-wrap max-w-none">
-    <p>A Software Carpentry workshop is taught by at least one trained and badged Instructor. Over the course of the
-        workshop, Instructors teach our three core topics: the Unix shell, version control with Git, and a programming
-        language (Python or R). Curricula for these lessons in English and Spanish (select lessons only) are below.</p>
-    <p>You may also enjoy <a href="https://datacarpentry.org/lessons">Data Carpentry’s lessons</a> (which focus on data
-        organisation, cleanup, analysis, and visualisation) and <a href="https://librarycarpentry.org/lessons">Library
-            Carpentry’s lessons</a> (which apply concepts of software development and data science to library contexts).
-    </p>
-    <p>Please <a href="https://carpentries.org/contact">contact us</a> with any general questions.</p>
-    <h2 id="core-lessons-in-english">Core Lessons in English</h2>
-    <div class="table-striped overflow-x-auto">
-        <table>
-            <thead>
-                <tr>
-                    <th>Lesson</th>
-                    <th>Site</th>
-                    <th>Repository</th>
-                    <th>Reference</th>
-                    <th>Instructor Notes</th>
-                    <th>Maintainers</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>The Unix Shell</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/shell-novice"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/shell-novice/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>Jacob Deppen, Benson Muite</td>
-                </tr>
-                <tr>
-                    <td>Version control with Git</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/git-novice"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/git-novice"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/git-novice/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/git-novice/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>Erin Graham, Katherine Koziar, Martino Sorbaro</td>
-                </tr>
-...
-            </tbody>
-        </table>
-    </div>
-    <h2 id="core-lessons-in-spanish">Core Lessons in Spanish</h2>
-    <div class="table-striped overflow-x-auto">
-        <table>
-            <thead>
-                <tr>
-                    <th>LecciÃ³n</th>
-                    <th>Sitio web</th>
-                    <th>Repositorio</th>
-                    <th>Referencias</th>
-                    <th>Notas para Instructoras/es</th>
-                    <th>Reponsable(s) del mantenimiento</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>La Terminal de Unix</td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice-es"><i
-                                class="fas fa-window-maximize"></i></a></td>
-                    <td style="text-align:center"><a href="https://github.com/swcarpentry/shell-novice-es"><i
-                                class="fab fa-github"></i></a></td>
-                    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice-es/reference"><i
-                                class="fas fa-eye"></i></a></td>
-                    <td style="text-align:center"><a
-                            href="https://swcarpentry.github.io/shell-novice-es/instructor/instructor-notes"><i
-                                class="fas fa-plus"></i></a></td>
-                    <td>VerÃ³nica JimÃ©nez, Clara Llebot, Heladia Salgado</td>
-                </tr>
-...
+<table class="currentobs"><caption class="titleDataHeader">Conditions at 46014 as of<br/>(12:40 am PDT)<br/>0740 GMT on 07/22/2026:</caption>
+<tbody><tr>
+<td class="parmform" colspan="2">
+<form action="/station_page.php" method="get" name="uom_m">
+<input name="station" type="hidden" value="46014"/>
+<label for="uom">Unit of Measure: </label><select id="uom" name="uom" size="1">
+<option selected="selected" value="E"> Imperial</option>
+<option value="M"> Metric</option>
+</select>  
+<label for="tz">Time Zone: </label><select id="tz" name="tz" size="1">
+<option value="STN">Station Local Time</option>
+<option value="GMT">Greenwich Mean Time [GMT]</option>
+<option value="BST">British Summer Time [GMT+1]</option>
+<option value="EGT">Eastern Greenland [GMT-1]</option>
+<option value="AZOT">Azores [GMT-2]</option>
+<option value="WGT">Western Greenland [GMT-3]</option>
+<option value="AST">Atlantic Standard [GMT-4]</option>
+<option value="EST">US/Eastern Standard</option>
+<option value="CST">US/Central Standard</option>
+<option value="MST">US/Mountain Standard</option>
+<option value="PST">US/Pacific Standard</option>
+<option value="AKST">Alaska Standard [GMT-9]</option>
+<option value="HST">Hawaii Standard [GMT-10]</option>
+<option value="HAST">Hawaii-Aleutian Standard [GMT-10]</option>
+<option value="SST">Samoa Standard [GMT-11]</option>
+<option value="IDLW">International Date Line West [GMT-12]</option>
+<option value="WET">Western European [GMT+0]</option>
+<option value="CET">Central European [GMT+1]</option>
+<option value="EET">Eastern European [GMT+2]</option>
+<option value="MSK">Moscow [GMT+3]</option>
+<option value="GMT+4">GMT+4</option>
+<option value="PKT">Pakistan Standard [GMT+5]</option>
+<option value="GMT+6">GMT+6</option>
+<option value="ICT">Indochina Time [GMT+7]</option>
+<option value="HKT">Hong Kong [GMT+8]</option>
+<option value="JST">Japan Standard [GMT+9]</option>
+<option value="CHST">Chamorro Standard [GMT+10]</option>
+<option value="ZP11">GMT+11</option>
+<option value="IDLE">International Date Line East [GMT+12]</option>
+</select>  <input type="submit" value=" Select "/></form>
+<p class="smallertext"><i>Click on the graph icon in the table below to see a time series plot of the last five days of that observation.</i></p></td></tr><tr><td><a href="/show_plot.php?station=46014&amp;meas=wdir&amp;uom=E&amp;tz=PST"><img alt="5-day plot - Wind Direction" height="20" src="/images/graph04.gif" title="5-day plot - Wind Direction" width="21"/></a> Wind Direction (WDIR):</td><td>SSE ( 150 deg true )</td></tr>
+<tr><td><a href="/show_plot.php?station=46014&amp;meas=wspd&amp;uom=E&amp;tz=PST"><img alt="5-day plot - Wind Speed" height="20" src="/images/graph04.gif" title="5-day plot - Wind Speed" width="21"/></a> Wind Speed (WSPD):</td><td> 11.7 kts</td>
+</tr><tr><td><a href="/show_plot.php?station=46014&amp;meas=wgst&amp;uom=E&amp;tz=PST"><img alt="5-day plot - Wind Gust" height="20" src="/images/graph04.gif" title="5-day plot - Wind Gust" width="21"/></a> Wind Gust (GST):</td><td> 15.5 kts</td>
+</tr>
+<tr><td><a href="/show_plot.php?station=46014&amp;meas=pres&amp;uom=E&amp;tz=PST"><img alt="5-day plot - Atmospheric Pressure" height="20" src="/images/graph04.gif" title="5-day plot - Atmospheric Pressure" width="21"/></a> Atmospheric Pressure (PRES):</td><td>29.94 in</td>
+</tr>
+<tr><td><a href="/show_plot.php?station=46014&amp;meas=wtmp&amp;uom=E&amp;tz=PST"><img alt="5-day plot - Water Temperature" height="20" src="/images/graph04.gif" title="5-day plot - Water Temperature" width="21"/></a> Water Temperature (WTMP):</td><td> 58.6 °F</td>
+</tr>
+<tr><td><a href="/show_plot.php?station=46014&amp;meas=w10m&amp;uom=E&amp;tz=PST"><img alt="5-day plot - Wind Speed at 10 Meters" height="20" src="/images/graph04.gif" title="5-day plot - Wind Speed at 10 Meters" width="21"/></a> Wind Speed at 10 meters (WSPD10M):</td><td> 11.7 kts</td>
+</tr>
+<tr><td><a href="/show_plot.php?station=46014&amp;meas=w20m&amp;uom=E&amp;tz=PST"><img alt="5-day plot - Wind Speed at 20 Meters" height="20" src="/images/graph04.gif" title="5-day plot - Wind Speed at 20 Meters" width="21"/></a> Wind Speed at 20 meters (WSPD20M):</td><td> 13.6 kts</td>
+</tr>
+<tr><td colspan="2"><a href="/show_plot.php?station=46014&amp;meas=wdpr&amp;uom=E&amp;tz=PST"><img alt="5-day plot -  Wind Speed, Wind Gust and Atmospheric Pressure" height="20" src="/images/graph04.gif" title="5-day plot -  Wind Speed, Wind Gust and Atmospheric Pressure" width="21"/></a> <a href="/show_plot.php?station=46014&amp;meas=wdpr&amp;uom=E&amp;tz=PST">Combined plot of Wind Speed, Gust, and Air Pressure</a></td>
+</tr>
+</tbody></table>
 ~~~
 {: .language-html}
 
-It seems we are on the right track.
-Now let's focus on the first `table` element:
-
-~~~
-(soup
- .find(string = "Core Lessons in English")
- .find_parents()[1]
- .find("table"))
-~~~
-{: .language-python}
-
-~~~
-<table>
-    <thead>
-        <tr>
-            <th>Lesson</th>
-            <th>Site</th>
-            <th>Repository</th>
-            <th>Reference</th>
-            <th>Instructor Notes</th>
-            <th>Maintainers</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>The Unix Shell</td>
-            <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/"><i
-                        class="fas fa-window-maximize"></i></a></td>
-            <td style="text-align:center"><a href="https://github.com/swcarpentry/shell-novice"><i
-                        class="fab fa-github"></i></a></td>
-            <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/reference"><i
-                        class="fas fa-eye"></i></a></td>
-            <td style="text-align:center"><a
-                    href="https://swcarpentry.github.io/shell-novice/instructor/instructor-notes"><i
-                        class="fas fa-plus"></i></a></td>
-            <td>Jacob Deppen, Benson Muite</td>
-        </tr>
-        <tr>
-            <td>Version control with Git</td>
-            <td style="text-align:center"><a href="https://swcarpentry.github.io/git-novice"><i
-                        class="fas fa-window-maximize"></i></a></td>
-            <td style="text-align:center"><a href="https://github.com/swcarpentry/git-novice"><i
-                        class="fab fa-github"></i></a></td>
-            <td style="text-align:center"><a href="https://swcarpentry.github.io/git-novice/reference"><i
-                        class="fas fa-eye"></i></a></td>
-            <td style="text-align:center"><a
-                    href="https://swcarpentry.github.io/git-novice/instructor/instructor-notes"><i
-                        class="fas fa-plus"></i></a></td>
-            <td>Erin Graham, Katherine Koziar, Martino Sorbaro</td>
-        </tr>
-        <tr>
-            <td>Programming with Python</td>
-            <td style="text-align:center"><a href="https://swcarpentry.github.io/python-novice-inflammation"><i
-                        class="fas fa-window-maximize"></i></a></td>
-            <td style="text-align:center"><a href="https://github.com/swcarpentry/python-novice-inflammation"><i
-                        class="fab fa-github"></i></a></td>
-            <td style="text-align:center"><a
-                    href="https://swcarpentry.github.io/python-novice-inflammation/reference"><i
-                        class="fas fa-eye"></i></a></td>
-            <td style="text-align:center"><a
-                    href="https://swcarpentry.github.io/python-novice-inflammation/instructor/instructor-notes"><i
-                        class="fas fa-plus"></i></a></td>
-            <td>Indraneel Chakraborty, Toan Phung, Alberto Villagran</td>
-        </tr>
-        <tr>
-            <td>Plotting and programming with Python</td>
-            <td style="text-align:center"><a href="https://swcarpentry.github.io/python-novice-gapminder"><i
-                        class="fas fa-window-maximize"></i></a></td>
-            <td style="text-align:center"><a href="https://github.com/swcarpentry/python-novice-gapminder"><i
-                        class="fab fa-github"></i></a></td>
-            <td style="text-align:center"><a href="https://swcarpentry.github.io/python-novice-gapminder/reference"><i
-                        class="fas fa-eye"></i></a></td>
-            <td style="text-align:center"><a
-                    href="https://swcarpentry.github.io/python-novice-gapminder/instructor/instructor-notes"><i
-                        class="fas fa-plus"></i></a></td>
-            <td>Allen Lee, Sourav Singh, Olav Vahtras</td>
-        </tr>
-        <tr>
-            <td>Programming with R</td>
-            <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-inflammation/"><i
-                        class="fas fa-window-maximize"></i></a></td>
-            <td style="text-align:center"><a href="https://github.com/swcarpentry/r-novice-inflammation"><i
-                        class="fab fa-github"></i></a></td>
-            <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-inflammation/reference"><i
-                        class="fas fa-eye"></i></a></td>
-            <td style="text-align:center"><a
-                    href="https://swcarpentry.github.io/r-novice-inflammation/instructor/instructor-notes"><i
-                        class="fas fa-plus"></i></a></td>
-            <td>Rohit Goswami, Hugo Gruson, Isaac Jennings</td>
-        </tr>
-        <tr>
-            <td>R for Reproducible Scientific Analysis</td>
-            <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-gapminder"><i
-                        class="fas fa-window-maximize"></i></a></td>
-            <td style="text-align:center"><a href="https://github.com/swcarpentry/r-novice-gapminder"><i
-                        class="fab fa-github"></i></a></td>
-            <td style="text-align:center"><a href="https://swcarpentry.github.io/r-novice-gapminder/reference"><i
-                        class="fas fa-eye"></i></a></td>
-            <td style="text-align:center"><a
-                    href="https://swcarpentry.github.io/r-novice-gapminder/instructor/instructor-notes"><i
-                        class="fas fa-plus"></i></a></td>
-            <td>Matthieu Bruneaux, Sehrish Kanwal, Naupaka Zimmerman</td>
-        </tr>
-    </tbody>
-</table>
-~~~
-{: .language-html}
+It seems we are on the right track - we've got the `table` element we were interested.
 
 Now we can get a list of row elements with
 
 ~~~
 rows = (soup
- .find(string = "Core Lessons in English")
+ .find(string = "Conditions at 46014 as of")
  .find_parents()[1]
- .find("table")
  .find_all("tr"))
 ~~~
 {: .language-python}
 
-Let's focus now on the second element (the first contains the column headings):
+Let's focus now on the second element (the first contains the unit and time zone choices):
 
 ~~~
 rows[1]
@@ -477,56 +351,46 @@ rows[1]
 {: .language-python}
 
 ~~~
-<tr>
-    <td>The Unix Shell</td>
-    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/"><i
-                class="fas fa-window-maximize"></i></a></td>
-    <td style="text-align:center"><a href="https://github.com/swcarpentry/shell-novice"><i
-                class="fab fa-github"></i></a></td>
-    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/reference"><i
-                class="fas fa-eye"></i></a></td>
-    <td style="text-align:center"><a href="https://swcarpentry.github.io/shell-novice/instructor/instructor-notes"><i
-                class="fas fa-plus"></i></a></td>
-    <td>Jacob Deppen, Benson Muite</td>
-</tr>
+<tr><td><a href="/show_plot.php?station=46014&amp;meas=wdir&amp;uom=E&amp;tz=PST"><img alt="5-day plot - Wind Direction" height="20" src="/images/graph04.gif" title="5-day plot - Wind Direction" width="21"/></a> Wind Direction (WDIR):</td><td>SSE ( 150 deg true )</td></tr>
 ~~~
 {: .language-html}
 
 We can now split the row 
-into six table data elements:
+into two table data elements:
 
 ~~~
-td0, td1, td2, td3, td4, td5 = rows[1].find_all("td")
+td0, td1 = rows[1].find_all("td")
 ~~~
 {: .language-python}
 
-If we want the link to the lesson page,
+If we want the link to the graph,
 we can look at the `<a>` tag in `td1`,
 and specifically at its `href` attribute:
 
 ~~~
-link = td1.find("a")["href"]
+link = td0.find("a")["href"]
 link
 ~~~
 {: .language-python}
 
 ~~~
-'https://swcarpentry.github.io/shell-novice/'
+'/show_plot.php?station=46014&meas=wdir&uom=E&tz=PST'
 ~~~
 {: .output}
 
-We can get a list of maintainer names 
-from the text content of `td5`:
+This is not particularly useful to us in this case because it's a relative link.
+
+We can get, for example, the general wind direction the text content of `td1`:
 
 ~~~
-maintainers = td5.text.split(",")
+wind_directions = td1.text.split()
 
-print(maintainers)
+print(wind_directions[0])
 ~~~
 {: .language-python}
 
 ~~~
-['Jacob Deppen', 'Benson Muite'] 
+'SSE'
 ~~~
 {: .output}
 
@@ -551,43 +415,36 @@ print(maintainers)
 > > `find_all` returns a list of them, so we can index
 > > into the list to access the one we want. For example:
 > > ~~~
-> > soup.find_all("table")[1]
+> > soup.find_all("table")[0]
 > > ~~~
 > > {: .language-python}
-> > can be used to access the second table.
+> > can be used to access the first table.
 > {: .solution}
 {: .challenge}
 
 > ## List the Lessons
 >
-> Create a list of all the lessons,
-> reporting for each one:
-> - lesson name
-> - link
-> - names of maintainers
+> Create a list of tuples for each time available containing:
+> - wind speed
+> - water_temperature
 > 
 > > ## Solution
 > >
 > > ~~~
-> > rows = soup.find("table").find_all("tr")
-> >  # Remove the first row that only contains headings
+> > rows = soup.find_all("table")[3].find_all("tr")
+> > # Remove the first row that only contains headings
 > > rows.pop(0)
 > > 
 > > def process_row(row):
-> >     td0,td1, _, _, _,td5 = row.find_all("td")
-> >     link = td1.find("a")["href"]
-> >     lesson = td0.text
-> >     maintainers = td5.text.split(",")
-> >     return dict(
-> >         lesson = lesson,
-> >         link = link,
-> >         maintainers = maintainers
-> >     ) 
+> >     _,td1, _, _, _, _, _, _, _, _, td10, _, _, _, _ = row.find_all("td")
+> >     wind_speed = td1.text.strip()
+> >     water_temperature = td10.text.strip()
+> >     return (wind_speed, water_temperature) 
 > > 
-> > lessons = []
+> > wind_speed_and_water_temperature = []
 > > for row in rows:
-> >     lessons.append(process_row(row))
-> > print(lessons)
+> >     wind_speed_and_water_temperature.append(process_row(row))
+> > print(wind_speed_and_water_temperature)
 > > ~~~
 > > {: .language-python}
 > {: .solution}
@@ -608,7 +465,8 @@ in web scraping.
 > ## Scraping the locations for tide gauge stations into a Pandas dataframe
 >
 > Look at [the locations for tide gauge stations][psmsl].
-> How would you extract these data as a Pandas dataframe?
+> How would you extract these data as a Pandas dataframe? (Which is probably a much more 
+> useful way to end up with the data than in a list, as we did above.)
 >
 > > ## Solution
 > > ~~~
@@ -662,7 +520,7 @@ and automate the interaction with it.
 
 
 [bs4-docs]: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
-[software-carpentry-lessons]: https://software-carpentry.org/lessons/
+[national-data-buoy-centre]: https://www.ndbc.noaa.gov/station_page.php?station=46014
 [psmsl]: https://psmsl.org/data/obtaining/
 [mdn-elements-reference]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 [selenium]: https://www.selenium.dev/documentation/en/webdriver/

@@ -8,7 +8,7 @@ questions:
 - "How can requests to web APIs be authenticated?"
 objectives:
 - "Be able to make requests to web APIs using `curl` using endpoints, query parameters, and JSON data."
-- "Be able to identify responses in plain text and JSON."
+- "Be able to identify responses in JSON."
 - "Be able to authenticate to web APIs with passwords and authentication tokens."
 keypoints:
 - "Interact with web APIs by sending requests to an _endpoint_ representing a function of interest. Parameters can be encoded into the request, or attached as e.g. JSON."
@@ -21,40 +21,26 @@ We've done a lot of talking about the technologies that will let us interact
 with APIs so far. Let's now start putting this into practice and query an API.
 
 ~~~
-$ curl http://numbersapi.com/42
+$ curl https://catfact.ninja/fact
 ~~~
 {: .language-bash}
 
 ~~~
-42 is the number of laws of cricket.
+{"fact":"The Maine Coone is the only native American long haired breed.","length":62}
 ~~~
 {: .output}
 
-[Numbers API][numbersapi] provides facts about numbers. By putting the number of
-interest into the address, we tell Numbers API which number to give a fact
-about. By adding other keywords to the address, we can refine the domain that
-we're asking for information in; for example, for specifically mathematical
-trivia, we can add `/math`.
+[Cat Fact API][catfactapi] provides random facts about cats (and the length of the fact). 
+The address we used had `/fact` at the end of it - this meant that we asked for a single random fact.
 
-~~~
-$ curl http://numbersapi.com/42/math
-~~~
-{: .language-bash}
-
-~~~
-42 is a perfect score on the USA Math Olympiad (USAMO) and International Mathematical Olympiad (IMO).
-~~~
-{: .output}
-
-Numbers API is not an especially sophisticated API. In particular, it only
-offers a single _endpoint_ (specifically, `/`), and each response to a query is
-a single string, provided as plain text.
+Cat Fact API is not an especially sophisticated API. In particular, it only
+offers a couple of _endpoints_ (specifically, we used the `fact` endpoint). The response to our query was some collection of data that includes a string containing a cat fact. (We will discuss this sort of data structure shortly!)
 
 We can think of an API as being similar to a package or library in a programming
 language, but one that is usable from almost any programming language. In these
-terms, an endpoint is equivalent to a function; Numbers API provides a single
-function, `/`, which gives information about numbers. The response is the return
-value of the function, and in this case is a single string. This maps well onto
+terms, an endpoint is equivalent to a function; Cat Fact API provides a 
+function, `fact`, which gives information about cats. The response is the return
+value of the function, which can be as simple as a single string. This maps well onto
 HTTP, as the response body of a request is a string of either characters or of
 bytes. (Byte strings don't translate well between languages, so are usually
 avoided, except for specific portable formats such as images.)
@@ -75,13 +61,13 @@ $ curl https://newton.vercel.app/api/v2/factor/x^2-1
 ~~~
 {: .output}
 
-Two things have changed. Firstly, now instead of `/`, we are specifying that we
+Two things have changed. Firstly, now instead of `fact`, we are specifying that we
 want to use the `factor` endpoint provided by the `v2` version of the API. This
 is a very common way of structuring APIs: firstly a version, and then one or
 more levels of endpoints to specify what function you would like the API to
 perform.
 
-Secondly, rather than a plain text response, we get a data structure. This is
+In response, we get a data structure. This is
 still encoded as plain text (because HTTP can't natively transmit much else),
 but we can't use the text directly&mdash;instead, we need to parse it, first.
 The syntax used here is the most common format for modern web APIs, and is
@@ -236,8 +222,8 @@ service, including examples.
 ## More complicated queries
 
 Thus far we have queried APIs where any parameters are included as part of the
-effective "filename" on the server. For example, in `http://numbersapi.com/42`,
-the `42` is a parameter to the API, but at first glance it could equally well be
+effective "filename" on the server. For example, in `https://newton.vercel.app/api/v2/factor/x^2-1`,
+the `x^2-1` is a parameter to the API, but at first glance it could equally well be
 an endpoint.
 
 Many APIs make this distinction more clear, by accepting arguments in a _query
@@ -285,10 +271,32 @@ in the body of the request. Since constructing JSON by hand is tedious, we will
 defer such APIs to the next section.
 
 
-> ## NASA aerial imagery
+> ## NASA imagery
 >
-> Look through [NASA's API documentation][nasa-api]. Use the Earth API to retrieve an aerial
-> image of your current location.
+> Look through [NASA's API documentation][nasa-api]. Use the APOD API to get links and metadata for the pictures of the day from 20th June 2026 to the 23rd June 2026.
+>> ## Solution
+>>
+>> ~~~
+>> curl "https://api.nasa.gov/planetary/apod?start_date=2026-06-20&end_date=2026-06-23&api_key=ejgThfasPCRf4kTd39ar55Aqhxv8cwKBdVOyZ9Rr"
+>> ~~~
+>> {: .language-bash}
+>>
+> {: .solution} 
+{: .challenge}
+
+
+> ## HTTP Status Codes and Downloading Images
+>
+> In the previous chapter, we talked about HTTP status codes. We're going to use an API 
+> now to explore what some more of these codes mean.
+>
+> The API we're going to use is [HTTP Cats][http-cats]. This API provides a cat picture 
+> that represnts the meaning of each HTTP code.
+>
+> Pick a HTTP code that you want to retrieve a cat picture for. 
+>
+> (Not every HTTP code is represented. If your favourite HTTP code doesn't have a picture, pick 
+> another one for now!)
 >
 > Try first using `curl` without any flags. What message do you get from `curl`?
 > Why might this be?
@@ -299,6 +307,36 @@ defer such APIs to the next section.
 >
 > Finally, follow `curl`'s advice to save the output to a file. Open the
 > resulting file and see if it matches what you expected.
+>> ## Solution
+>>
+>> Using 404 as our HTTP status code, for example.
+>>
+>> ~~~
+>> curl https://http.cat/404
+>> ~~~
+>> {: .language-bash}
+>>
+>> ~~~
+>> Warning: Binary output can mess up your terminal. Use "--output -" to tell curl to output it to your terminal anyway, or consider "--output <FILE>" to save to a file.
+>> ~~~
+>> {: .output}
+>>
+>> ~~~
+>> curl -I https://http.cat/404
+>> ~~~
+>> {: .language-bash}
+>>
+>> ~~~
+>> content-type: image/jpeg
+>> ~~~
+>> {: .output}
+>>
+>> ~~~
+>> curl https://http.cat/404 --output 404.jpg
+>> ~~~
+>> {: .language-bash}
+>>
+> {: .solution} 
 {: .challenge}
 
 
@@ -306,7 +344,8 @@ defer such APIs to the next section.
 [basic-auth]: https://en.wikipedia.org/wiki/Basic_access_authentication
 [cookie]: https://en.wikipedia.org/wiki/HTTP_cookie
 [digest-auth]: https://en.wikipedia.org/wiki/Digest_access_authentication
+[http-cats]: https://http.cat/
 [nasa-api]: https://api.nasa.gov
 [newton]: https://newton.vercel.app
 [newton-docs]: https://github.com/aunyks/newton-api
-[numbersapi]: http://numbersapi.com
+[catfactapi]: https://catfact.ninja/
