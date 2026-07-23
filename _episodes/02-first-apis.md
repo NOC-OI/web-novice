@@ -182,7 +182,7 @@ Picture of the Day (APOD) as an example of an API query to try. This shows us
 that NASA expects the API key to be encoded as a query parameter.
 
 ~~~
-$ curl -i https://api.nasa.gov/planetary/apod?api_key=ejgThfasPCRf4kTd39ar55Aqhxv8cwKBdVOyZ9Rr
+$ curl -i "https://api.nasa.gov/planetary/apod?api_key=ejgThfasPCRf4kTd39ar55Aqhxv8cwKBdVOyZ9Rr"
 ~~~
 {: .language-bash}
 
