@@ -291,7 +291,7 @@ defer such APIs to the next section.
 > now to explore what some more of these codes mean.
 >
 > The API we're going to use is [HTTP Cats][http-cats]. This API provides a cat picture 
-> that represnts the meaning of each HTTP code.
+> that represents the meaning of each HTTP code.
 >
 > Pick a HTTP code that you want to retrieve a cat picture for. 
 >
