@@ -30,7 +30,7 @@ In fact, Python has such a collection built into it; it is called a `dict`
 Clinic][mayo-caffeine] about caffeine levels in various beverages.
 
 ~~~
-caffeine_mg_per_serving = {'coffee': 96, 'tea': 47, 'cola': 24, 'energy drink': 29}
+caffeine_mg_per_serving = {'coffee': 96, 'tea': 48, 'cola': 24, 'energy drink': 79}
 ~~~
 {: .language-python}
 
@@ -57,13 +57,13 @@ instance, you may have spotted that the value for `'cola'` is incorrect. Let's
 fix that now.
 
 ~~~
-caffeine_mg_per_serving['cola'] = 22
+caffeine_mg_per_serving['cola'] = 33
 print(caffeine_mg_per_serving)
 ~~~
 {: .language-python}
 
 ~~~
-{'coffee': 96, 'tea': 47, 'cola': 22, 'energy drink': 29}
+{'coffee': 96, 'tea': 48, 'cola': 33, 'energy drink': 79}
 ~~~
 {: .output}
 
@@ -71,13 +71,13 @@ One thing that we can't do for lists is create new elements by indexing with
 `[]`. But `dict`s let us do that, as well:
 
 ~~~
-caffeine_mg_per_serving['green tea'] = 28
+caffeine_mg_per_serving['green tea'] = 29
 print(caffeine_mg_per_serving)
 ~~~
 {: .language-python}
 
 ~~~
-{'coffee': 96, 'tea': 47, 'cola': 22, 'energy drink': 29, 'green tea': 28'}
+{'coffee': 96, 'tea': 48, 'cola': 33, 'energy drink': 79, 'green tea': 29'}
 ~~~
 {: .output}
 
@@ -181,10 +181,10 @@ for drink, quantity in caffeine_mg_per_serving.items():
 
 ~~~
 Coffee contains 96 mg of caffeine per serving
-Tea contains 47 mg of caffeine per serving
-Cola contains 22 mg of caffeine per serving
-Energy drink contains 29 mg of caffeine per serving
-Green tea contains 28 mg of caffeine per serving
+Tea contains 48 mg of caffeine per serving
+Cola contains 33 mg of caffeine per serving
+Energy drink contains 79 mg of caffeine per serving
+Green tea contains 29 mg of caffeine per serving
 ~~~
 {: .output}
 
