@@ -54,7 +54,7 @@ Another way to explore the HTML code
 is to use the Developer Tools.
 In most browser,
 (Chrome, Chromium and Firefox), 
-you can use the `CTRL+Shift+I` key combination 
+you can use the `CTRL+Shift+I` (or `Option+Command+I` for macOS) key combination 
 to open the Developer Tools
 (alternatively, find the right option
 in your browser menu).
@@ -62,12 +62,13 @@ in your browser menu).
 > ## Developer Tools in Safari
 >
 > In Safari on macOS, the Developer Tools are hidden by default. To enable them,
-> open the Preferences window, go to the Advanced tab, and enable the "Show
-> Develop menu in menu bar" option.
+> open the Settings window, go to the Advanced tab, and enable the "Show
+> features for web developers" option.
 {: .callout}
 
 By using these, 
-by pressing the combination `CTRL+Shift+C`
+by pressing the combination `CTRL+Shift+C` 
+or `Option+Command+C` for macOS
 (or clicking on the mouse pointer icon 
 in the top left of the window)
 you can hover with the mouse 
