@@ -481,7 +481,10 @@ and pass it to `requests.post`.
 First of all, let's load the GitHub access token:
 
 ~~~
-with open("github-access-token.txt", "r") as file:
+import os
+
+file_path = os.getcwd() + "/github-access-token.txt"
+with open(file_path, "r") as file:
   ghtoken = file.read().strip()
 ~~~
 {: .language-python}
